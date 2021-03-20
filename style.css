@@ -18,7 +18,7 @@
   animation: jump 1s linear;
 }
 
-@keyframes jump {
+@keyframes jumping {
   0%{ top:140px; }
   30%{ top:90px; }
   70%{ top:90px; }
@@ -35,10 +35,10 @@
 }
 
 .slide {
-  animation: block 3s infinite linear;
+  animation: sliding 3s infinite linear;
 }
 
-@keyframes block {
+@keyframes sliding {
   0%{left:30px;}
   100%{left:-40px;}
 }
