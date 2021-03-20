@@ -2,10 +2,12 @@ var character = document.getElementById("character");
 var block = document.getElementById("block");
 
 function jump() {
+  if (character.classList.contains("animate")){return}
+  
   if (characater.classList != "jumping"){
     character.classList.add("jumping");
   }
-  setTimeOut(function() {character.classList.remove("jumping");},1000);
+  setTimeOut(function(){character.classList.remove("jumping");},1000);
 }
 
 var checkCollisions = setInterval(function(){
