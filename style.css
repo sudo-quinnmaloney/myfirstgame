@@ -34,12 +34,12 @@
 }
 
 #block {
-  width:20px;
-  height:15px;
-  border:1px solid black;
+  width: 20px;
+  height: 15px;
+  border: 1px solid black;
   position: relative;
-  top:185px;
-  left:100%;
+  top: 185px;
+  left: 105%;
   animation: sliding 5s infinite linear;
 }
 
