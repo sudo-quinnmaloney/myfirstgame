@@ -40,7 +40,7 @@
   position: relative;
   top:185px;
   left:100%;
-  animation: sliding 3s infinite linear;
+  animation: sliding 5s infinite linear;
 }
 
 @keyframes sliding {
