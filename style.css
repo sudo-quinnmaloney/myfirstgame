@@ -22,7 +22,7 @@
   0%{ top:140px; }
   30%{ top:90px; }
   70%{ top:90px; }
-  100%[ top:140px; }
+  100%{ top:140px; }
 }
 
 #block {
