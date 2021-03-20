@@ -44,6 +44,6 @@
 }
 
 @keyframes sliding {
-  0%{left:100%;}
+  0%{left:105%;}
   100%{left:-15px;}
 }
