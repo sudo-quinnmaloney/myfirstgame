@@ -32,9 +32,6 @@
   position: relative;
   top:185px;
   left:30px;
-}
-
-.slide {
   animation: sliding 3s infinite linear;
 }
 
