@@ -15,7 +15,7 @@
 }
 
 .jumping {
-  animation: jumping 1s linear;
+  animation: jumping 5s linear;
 }
 
 .falling {
