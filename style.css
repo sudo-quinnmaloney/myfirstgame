@@ -14,8 +14,8 @@
   top: 140px;
 }
 
-.jump {
-  animation: jump 1s linear;
+.jumping {
+  animation: jumping 1s linear;
 }
 
 @keyframes jumping {
