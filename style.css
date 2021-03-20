@@ -31,11 +31,11 @@
   border:1px solid black;
   position: relative;
   top:185px;
-  left:30px;
+  left:100%;
   animation: sliding 3s infinite linear;
 }
 
 @keyframes sliding {
-  0%{left:30px;}
-  100%{left:-40px;}
+  0%{left:100%;}
+  100%{left:-15px;}
 }
