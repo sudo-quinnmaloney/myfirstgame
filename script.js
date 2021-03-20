@@ -19,7 +19,10 @@ var checkCollisions = setInterval(function(){
       character.classList.remove("falling");
     }
   }
-  else if (character.classList != "jumping" && characterTop <= 125) {
+  else if (character.classList != "jumping" && characterTop < 140) {
     character.classList.add("falling");
+  }
+  if (characterTop == 140 && character.classList == "falling") {
+    character.classList.remove("falling");
   }
 },10);
