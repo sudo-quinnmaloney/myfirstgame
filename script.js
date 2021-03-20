@@ -15,16 +15,16 @@ var checkCollisions = setInterval(function(){
   var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
   var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
   if (Math.abs(blockLeft - characterLeft) <= 20 && characterTop >= 120) {
-    if (character.classList == "jumping") {
+    if (character.classList.contains("jumping")) {
       character.classList.remove("jumping");
     } else {
       character.classList.remove("falling");
     }
   }
-  else if (character.classList != "jumping" && characterTop < 140) {
+  else if (!character.classList.contains("jumping") && characterTop < 140) {
     character.classList.add("falling");
   }
-  if (characterTop == 140 && character.classList == "falling") {
+  if (characterTop == 140 && character.classList.contains("falling")) {
     character.classList.remove("falling");
   }
 },10);
