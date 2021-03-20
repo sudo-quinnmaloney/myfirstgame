@@ -5,6 +5,6 @@ function jump() {
   character.classList.add("jumping")
 }
 
-functino slide() {
+function slide() {
   block.classList.add("sliding")
 }
