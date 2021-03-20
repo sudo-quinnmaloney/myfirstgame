@@ -13,6 +13,6 @@ var checkCollisions = setInterval(function(){
   var characterLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
   var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
   if (Math.abs(blockLeft - characterLeft) <= 20 && characterTop >= 125) {
-    alert("Contact");
+    
   }
 },10);
