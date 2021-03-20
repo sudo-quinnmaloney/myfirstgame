@@ -18,10 +18,18 @@
   animation: jumping 1s linear;
 }
 
+.falling {
+  animation: falling .2s linear;
+}
+
 @keyframes jumping {
   0%{ top:140px; }
   30%{ top:90px; }
   70%{ top:90px; }
+  100%{ top:140px; }
+}
+
+@keyframes falling {
   100%{ top:140px; }
 }
 
