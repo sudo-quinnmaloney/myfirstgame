@@ -1,7 +1,7 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 
-function jump() {
+function jump {
   if (character.classList.contains("jumping")){return}
   
   if (characater.classList != "jumping"){
