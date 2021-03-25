@@ -7,7 +7,7 @@ function jump() {
   if (characater.classList != "jumping"){
     character.classList.add("jumping");
   }
-  setTimeOut(function(){character.classList.remove("jumping");},1000);
+  setTimeOut(jump(){character.classList.remove("jumping");},1000);
 }
 
 var checkCollisions = setInterval(function(){
