@@ -50,17 +50,15 @@ window.addEventListener("keydown",
     }
     // left arrow
     if (pressed == 37 || pressed == 65) {
-      if (!movingRight){
-        mvmtSpeed[0] = 3;
-        movingLeft = 1;
-      } else { movingRight = 0; mvmtSpeed[0] = 0;}
+      mvmtSpeed[0] = 3;
+      movingLeft = 1;
     }
     // right arrow
     if (pressed == 39 || pressed == 68) { 
       if (!movingLeft) {
         mvmtSpeed[0] = -3;
         movingRight = 1;
-      } else { movingLeft = 0; mvmtSpeed[0] = 0;}
+      }
     }
     // boost
     if (pressed == 16) { 
@@ -78,13 +76,13 @@ window.addEventListener("keyup",
       if (movingLeft) {
         mvmtSpeed[0] = 0;
         movingLeft = 0;
-      } else {movingRight = 1; mvmtSpeed[0] = -3;}
+      }
     }
     if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
       if (movingRight) {
         mvmtSpeed[0] = 0;
         movingRight = 0;
-      } else {movingLeft = 1; mvmtSpeed[0] = 3;}
+      }
     }
     if (unpressed == 16) { 
       boost = 0;
