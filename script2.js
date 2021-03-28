@@ -24,6 +24,7 @@ var refreshGame = setInterval(function(){
       } else { mvmtSpeed[0] = 0;}
         
       if (rising == 1){ 
+        mvmtSpeed[1] += 2;
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         } else { 
@@ -31,12 +32,12 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] = 0;
         }
        } else { 
+        mvmtSpeed[1] -= 2;
         if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
           character.style.top = gameHeight-charHeight;
           mvmtSpeed[1] = 0;
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
-          mvmtSpeed[1] -= 2;
         }
 },10);
 
@@ -67,9 +68,6 @@ onkeydown = function(e){
     
     if (map[38] || map[32] || map[65]) {
       // up arrow
-      if (mvmtSpeed[1] < 6) {
-        mvmtSpeed[1] += 2;
-      }
       rising = 1;
     }
     if (map[37] || map[87]) {
