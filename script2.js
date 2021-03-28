@@ -1,6 +1,7 @@
   
 var character = document.getElementById("character");
 var block = document.getElementById("block");
+var mvmtSpeed = 6;
 
 
 function startJump() {
@@ -20,7 +21,11 @@ function checkKey(e) {
 
     e = e || window.event;
 
-    if (map[38]) {
+    if (map[16]) {
+      mvmtSpeed = 12;
+    } else { mvmtSpeed = 6; }
+  
+    if (map[38] || map[32]) {
       // up arrow
       startJump();
     }
@@ -30,12 +35,12 @@ function checkKey(e) {
     if (map[37]) {
       // left arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-      character.style.left = posLeft - 6 + 'px';
+      character.style.left = posLeft - mvmtSpeed + 'px';
     }
     if (map[39]) {
        // right arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-      character.style.left = posLeft + 6 + 'px';
+      character.style.left = posLeft + mvmtSpeed + 'px';
     }
 
 }
