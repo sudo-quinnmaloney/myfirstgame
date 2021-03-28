@@ -32,7 +32,9 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] = 0;
         }
        } else { 
-        mvmtSpeed[1] -= 1;
+        if (mvmtSpeed[1] > -5) {
+          mvmtSpeed[1] -= 1;
+        }
         if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
           character.style.top = gameHeight-charHeight;
           mvmtSpeed[1] = 0;
@@ -69,10 +71,10 @@ window.addEventListener("keyup",
     if (unpressed == 38 || unpressed == 32 || unpressed == 87) {
       rising = 0;
     }
-    if ((unpressed == 37 || unpressed == 65) && mvmtSpeed[0] > 0) {
+    if (unpressed == 37 || unpressed == 65) {
       movingLeft = 0;
     }
-    if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
+    if (unpressed == 39 || unpressed == 68) {
       movingRight = 0;
     }
     if (unpressed == 16) { 
