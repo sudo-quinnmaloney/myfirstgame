@@ -2,8 +2,10 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var game = document.getElementById("game");
-var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width");
-var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width");
+var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
+var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));        
+var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
+var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var mvmtSpeed = [6,0];
 
 
@@ -28,10 +30,12 @@ onkeydown = onkeyup = function(e){
       if (mvmtSpeed[1] < 8) {
         mvmtSpeed[1] += 2;
       }
-      if (posTop > mvmtSpeed[1]){
+      if (posTop > mvmtSpeed[1]) {
         character.style.top = posTop - mvmtSpeed[1] + 'px';
-      } else {mvmtSpeed[1] = 0;}
-    } else if (posTop < 140) {
+      } else { 
+        character.style.top = 0; mvmtSpeed[1] = 0;
+      }
+    } else if (posTop < gameHeight-charHeight) {
       //fall
       mvmtSpeed[1] -= 2;
       character.style.top = posTop - mvmtSpeed[1] + 'px';
