@@ -44,7 +44,7 @@ onkeydown = onkeyup = function(e){
       if (mvmtSpeed[1] < 8) {
         mvmtSpeed[1] += 2;
       }
-    } else if (posTop < gameHeight-charHeight) {
+    } else {
       //fall
       mvmtSpeed[1] -= 2;
     }
