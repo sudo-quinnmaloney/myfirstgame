@@ -39,6 +39,7 @@ var refreshGame = setInterval(function(){
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
+       }
 },10);
 
 var map = {}; // You could also use an array
