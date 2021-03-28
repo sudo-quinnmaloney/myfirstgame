@@ -12,6 +12,14 @@
   border: 1px solid black;
   position: relative;
   top: 140px;
+  animation: jumping 2s infinite linear;
+}
+
+@keyframes jumping {
+  0%{top:140px;}
+  30%{top:110px;}
+  70%{top:110px;}
+  100%{top:140px;}
 }
 
 #block {
