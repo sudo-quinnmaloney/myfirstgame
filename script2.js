@@ -25,8 +25,8 @@ onkeydown = onkeyup = function(e){
     
     if (map[38] || map[32] || map[65]) {
       // up arrow
-      if (mvmtSpeed < 6) {
-        mvmtSpeed[1] += 2;
+      if (mvmtSpeed < 8) {
+        mvmtSpeed[1] += 1;
       }
       if (posTop > mvmtSpeed){
         character.style.top = posTop - mvmtSpeed[2] + 'px';
@@ -47,5 +47,4 @@ onkeydown = onkeyup = function(e){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft + mvmtSpeed[0] + 'px';
     }
-
 }
