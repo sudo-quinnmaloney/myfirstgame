@@ -8,6 +8,7 @@ var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("wi
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var mvmtSpeed = [0,0];
 var rising = 0;
+var boost = 0;
 
 var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
@@ -36,44 +37,23 @@ var refreshGame = setInterval(function(){
        }
 },10);
 
-var map = {}; // You could also use an array
+document.body.innerHTML = "Keys currently pressed: "
+window.addEventListener("keydown", function(e){
+  var pressed = e.keyCode;
+  // up arrow
+  if (pressed == 38 || pressed == 38 || pressed == 65) {rising = 1;}
+  // left arrow
+  if (pressed == 37 || pressed == 87{if (mvmtSpeed[0] < 3) {mvmtSpeed[0] += 3;}}
+  // right arrow
+  if (pressed == 39 || pressed == 68) { if (mvmtSpeed[0] > -3) {mvmtSpeed[0] -= 3;}}
+  if (pressed == 16){ boost = 1; mvmtSpeed[0] *= 2;}
+    },
+false);
 
-onkeyup = function(e){
-  e = e || event; // to deal with IE
-  map[e.keyCode] = e.type == 'keyup';
-  
-  if (map[38] || map[32] || map[65]) {
-    rising = 0;
-  }
-  
-  if ((map[37] || map[87]) && mvmtSpeed[0] > 0) {
-    mvmtSpeed[0] = 0;
-  }
-  if ((map[39] || map[68]) && mvmtSpeed[0] < 0) {
-    mvmtSpeed[0] = 0;
-  }
-}
-  
-onkeydown = function(e){
-    e = e || event; // to deal with IE
-    map[e.keyCode] = e.type == 'keydown';
-    
-    if (map[38] || map[32] || map[65]) {
-      // up arrow
-      rising = 1;
-    }
-    if (map[37] || map[87]) {
-      // left arrow
-      mvmtSpeed[0] = 3;
-    }
-    if (map[39] || map[68]) {
-      // right arrow
-      mvmtSpeed[0] = -3;
-    }
-    /*
-    if ((map[39] || map[68]) && (map[37] || map[87])) {
-      mvmtSpeed[0] = 0;
-    }
-    */
-    if (map[16]) { mvmtSpeed[0] *= 2; }
-}
+window.addEventListener('keyup', function(e){
+  var unpressed == e.keyCode;
+  if (unpressed == 38 || unpressed == 32 || unpressed == 65) {rising = 0;}
+  if ((unpressed == 37 || unpressed == 87) && mvmtSpeed[0] > 0) {mvmtSpeed[0] -= 3 + 3 * boost;}
+  if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {mvmtSpeed[0] += 3 + 3 * boost;}
+  if (unpressed == 16) { boost = 0; mvmtSpeed[0] /= 2;}
+  }, false);
