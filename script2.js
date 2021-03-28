@@ -33,13 +33,17 @@ onkeydown = onkeyup = function(e){
       if (posTop > mvmtSpeed[1]) {
         character.style.top = posTop - mvmtSpeed[1] + 'px';
       } else { 
-        character.style.top = 0; mvmtSpeed[1] = 0;
+        character.style.top = 0; 
+        mvmtSpeed[1] = 0;
       }
     } else if (posTop < gameHeight-charHeight) {
       //fall
       mvmtSpeed[1] -= 2;
       character.style.top = posTop - mvmtSpeed[1] + 'px';
-    } else { mvmtSpeed[1] = 0; }
+    } else { 
+      character.style.top = gameHeight-charHeight;
+      mvmtSpeed[1] = 0; 
+    }
   
     if ((map[37] || map[87]) && posLeft > 0) {
       // left arrow
