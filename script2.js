@@ -7,7 +7,7 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var mvmtSpeed = [0,0];
-
+var rising = 0;
 
 function startJump() {
   if (character.classList.contains("jumper")){return;}
@@ -22,21 +22,46 @@ var refreshGame = setInterval(function(){
       if (posLeft - mvmtSpeed[0] > 0 && posLeft - mvmtSpeed[0] < gameWidth - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] + 'px';
       } else { mvmtSpeed[0] = 0;}
-      
-      if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
-        character.style.top = gameHeight-charHeight;
-        mvmtSpeed[1] = 0;
-      } else if (posTop > mvmtSpeed[1]) {
-        character.style.top = posTop - mvmtSpeed[1] + 'px';
-        mvmtSpeed[1] -= 2;
-      } else { 
-        character.style.top = 0; 
-        mvmtSpeed[1] = 0;
-      }
+        
+      if (rising == 1){ 
+        if (posTop > mvmtSpeed[1]) {
+          character.style.top = posTop - mvmtSpeed[1] + 'px';
+        } else { 
+          character.style.top = 0; 
+          mvmtSpeed[1] = 0;
+        }
+       } else { 
+        if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
+          character.style.top = gameHeight-charHeight;
+          mvmtSpeed[1] = 0;
+        } else {
+          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          mvmtSpeed[1] -= 2;
+        }
 },10);
 
 var map = {}; // You could also use an array
-onkeydown = onkeyup = function(e){
+
+onkeyup = function(e){
+  e = e || event; // to deal with IE
+  map[e.keyCode] = e.type == 'keydown';
+  
+  if (map[38] || map[32] || map[65]) {
+    rising = 0;
+  }
+  
+  if (map[39] || map[68]) {
+    if (mvmtSpeed[0] > 0) {
+      mvmtSpeed[0] = 0;
+    } else { mvmtSpeed[0] -= 3; }
+  } else if (map[37] || map[87]) {
+    if (mvmtSpeed[0] < 0){
+      mvmtSpeed[0] = 0;
+    } else { mvmtSpeed[0] += 3; }
+  }
+}
+  
+onkeydown = function(e){
     e = e || event; // to deal with IE
     map[e.keyCode] = e.type == 'keydown';
     
@@ -45,20 +70,18 @@ onkeydown = onkeyup = function(e){
       if (mvmtSpeed[1] < 6) {
         mvmtSpeed[1] += 2;
       }
+      rising = 1;
     }
     if (map[37] || map[87]) {
       // left arrow
-      if (map[16]) {
-        mvmtSpeed[0] = 6;
-      } else { mvmtSpeed[0] = 3; }
+      mvmtSpeed[0] = 3; }
     }
     if (map[39] || map[68]) {
        // right arrow
-      if (map[16]) {
-        mvmtSpeed[0] = -6;
-      } else { mvmtSpeed[0] = -3; }
+        mvmtSpeed[0] = -3; }
     }
     if ((map[39] || map[68]) && (map[37] || map[87])) {
       mvmtSpeed[0] = 0;
     }
+    if (map[16]) { mvmtSpeed[0] *= 2; }
 }
