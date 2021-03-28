@@ -46,7 +46,7 @@ var map = {}; // You could also use an array
 
 onkeyup = function(e){
   e = e || event; // to deal with IE
-  map[e.keyCode] = e.type == 'keydown';
+  map[e.keyCode] = e.type == 'keyup';
   
   if (map[38] || map[32] || map[65]) {
     rising = 0;
@@ -74,11 +74,11 @@ onkeydown = function(e){
     }
     if (map[37] || map[87]) {
       // left arrow
-      mvmtSpeed[0] = 3; }
+      mvmtSpeed[0] = 3;
     }
     if (map[39] || map[68]) {
        // right arrow
-        mvmtSpeed[0] = -3; }
+        mvmtSpeed[0] = -3;
     }
     if ((map[39] || map[68]) && (map[37] || map[87])) {
       mvmtSpeed[0] = 0;
