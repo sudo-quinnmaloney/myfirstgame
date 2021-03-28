@@ -14,12 +14,6 @@ var map = {}; // You could also use an array
 onkeydown = onkeyup = function(e){
     e = e || event; // to deal with IE
     map[e.keyCode] = e.type == 'keydown';
-    /* insert conditional here */
-}
-
-function checkKey(e) {
-
-    e = e || window.event;
 
     if (map[16]) {
       mvmtSpeed = 12;
