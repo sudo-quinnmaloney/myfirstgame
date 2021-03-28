@@ -29,12 +29,13 @@ onkeydown = onkeyup = function(e){
         mvmtSpeed[1] += 2;
       }
       if (posTop > mvmtSpeed){
-        character.style.top = posLeft - mvmtSpeed[2] + 'px';
+        character.style.top = posTop - mvmtSpeed[2] + 'px';
       }
     } else if (posTop < 140) {
       //fall
       mvmtSpeed[1] -= 2;
-      character.style.top = posLeft - mvmtSpeed[2] + 'px';
+      character.style.top = posTop - mvmtSpeed[2] + 'px';
+    } else { mvmtSpeed[1] = 0; }
   
     if ((map[37] || map[87]) && posLeft > 0) {
       // left arrow
