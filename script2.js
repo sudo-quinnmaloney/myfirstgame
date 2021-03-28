@@ -19,7 +19,7 @@ var refreshGame = setInterval(function(){
   
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > 0 && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < gameWidth - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
-      }
+      } else { movingLeft = 0; movingRight = 0; }
         
       if (rising == 1){ 
         if (mvmtSpeed[1] < 3) {
