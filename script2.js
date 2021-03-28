@@ -45,19 +45,21 @@ window.addEventListener("keydown",
   function(e){
     var pressed = e.keyCode;
     // up arrow
-    if (pressed == 38 || pressed == 38 || pressed == 65) {
+    if (pressed == 38 || pressed == 87 || pressed == 32) {
       rising = 1;
     }
     // left arrow
-    if (pressed == 37 || pressed == 87) {
+    if (pressed == 37 || pressed == 65) {
       if (!movingLeft){
         mvmtSpeed[0] += 3;
+        movingLeft = 1;
       }
     }
     // right arrow
     if (pressed == 39 || pressed == 68) { 
       if (!movingRight) {
         mvmtSpeed[0] -= 3;
+        movingRight = 1;
       }
     }
     // boost
@@ -69,15 +71,15 @@ window.addEventListener("keydown",
 window.addEventListener("keyup", 
   function(e){
     var unpressed = e.keyCode;
-    if (unpressed == 38 || unpressed == 32 || unpressed == 65) {
+    if (unpressed == 38 || unpressed == 32 || unpressed == 87) {
       rising = 0;
     }
-    if ((unpressed == 37 || unpressed == 87) && mvmtSpeed[0] > 0) {
-      movingRight = 0;
+    if ((unpressed == 37 || unpressed == 65) && mvmtSpeed[0] > 0) {
+      movingLeft = 0;
       mvmtSpeed[0] -= 3;
     }
     if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
-      movingLeft = 0;
+      movingRight = 0;
       mvmtSpeed[0] += 3;
     }
     if (unpressed == 16) { 
