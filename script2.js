@@ -43,18 +43,32 @@ window.addEventListener("keydown",
     // up arrow
     if (pressed == 38 || pressed == 38 || pressed == 65) {rising = 1;}
     // left arrow
-    if (pressed == 37 || pressed == 87) {if (mvmtSpeed[0] < 3) {mvmtSpeed[0] += 3;}}
+    if (pressed == 37 || pressed == 87) {
+      if (mvmtSpeed[0] < 3) {mvmtSpeed[0] += 3;}
+    }
     // right arrow
-    if (pressed == 39 || pressed == 68) { if (mvmtSpeed[0] > -3) {mvmtSpeed[0] -= 3;}}
+    if (pressed == 39 || pressed == 68) { 
+      if (mvmtSpeed[0] > -3) {mvmtSpeed[0] -= 3;}
+    }
     // boost
-    if (pressed == 16) { boost = 1;}
+    if (pressed == 16) { 
+      boost = 1;
+    }
   },false);
 
 window.addEventListener('keyup', 
   function(e){
     var unpressed == e.keyCode;
-    if (unpressed == 38 || unpressed == 32 || unpressed == 65) {rising = 0;}
-    if ((unpressed == 37 || unpressed == 87) && mvmtSpeed[0] > 0) {mvmtSpeed[0] -= 3;}
-    if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {mvmtSpeed[0] += 3;}
-    if (unpressed == 16) { boost = 0;}
+    if (unpressed == 38 || unpressed == 32 || unpressed == 65) {
+      rising = 0;
+    }
+    if ((unpressed == 37 || unpressed == 87) && mvmtSpeed[0] > 0) {
+      mvmtSpeed[0] -= 3;
+    }
+    if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
+      mvmtSpeed[0] += 3;
+    }
+    if (unpressed == 16) { 
+      boost = 0;
+    }
   },false);
