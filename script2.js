@@ -5,5 +5,5 @@ var block = document.getElementById("block");
 function startJump() {
   if (character.classList.contains("jumper")){return;}
   character.classList.add("jumper");
-  setTimeOut(function() {character.classList.remove("jumper");},1000);
+  setTimeout(function() {character.classList.remove("jumper");},1000);
 }
