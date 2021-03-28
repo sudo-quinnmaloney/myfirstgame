@@ -9,12 +9,6 @@ var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("h
 var mvmtSpeed = [0,0];
 var rising = 0;
 
-function startJump() {
-  if (character.classList.contains("jumper")){return;}
-  character.classList.add("jumper");
-  setTimeout(function() {character.classList.remove("jumper");},1000);
-}
-
 var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
