@@ -23,11 +23,12 @@ var refreshGame = setInterval(function(){
         character.style.left = posLeft - mvmtSpeed[0] + 'px';
       } else { mvmtSpeed[0] = 0;}
       
-      if (posTop - mvmtSpeed[1] > gameHeight-charHeight-2) {
-        character.style.top = gameHeight-charHeight-2;
+      if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
+        character.style.top = gameHeight-charHeight;
         mvmtSpeed[1] = 0;
       } else if (posTop > mvmtSpeed[1]) {
         character.style.top = posTop - mvmtSpeed[1] + 'px';
+        mvmtSpeed[1] -= 2;
       } else { 
         character.style.top = 0; 
         mvmtSpeed[1] = 0;
@@ -41,24 +42,23 @@ onkeydown = onkeyup = function(e){
     
     if (map[38] || map[32] || map[65]) {
       // up arrow
-      if (mvmtSpeed[1] < 8) {
+      if (mvmtSpeed[1] < 6) {
         mvmtSpeed[1] += 2;
       }
-    } else {
-      //fall
-      mvmtSpeed[1] -= 2;
     }
-  
     if (map[37] || map[87]) {
       // left arrow
-      if (mvmtSpeed[0] < 4 || (map[16] && mvmtSpeed[0] < 6)) {
-        mvmtSpeed[0] += 2;
-      }
+      if (map[16]) {
+        mvmtSpeed[0] = 6;
+      } else { mvmtSpeed[0] = 3; }
     }
     if (map[39] || map[68]) {
        // right arrow
-      if (mvmtSpeed[0] > -4 || (map[16] && mvmtSpeed[0] > -6)) {
-        mvmtSpeed[0] -= 2;
-      }
+      if (map[16]) {
+        mvmtSpeed[0] = -6;
+      } else { mvmtSpeed[0] = -3; }
+    }
+    else if ((map[39] || map[68]) && (map[37] || map[87])) {
+      mvmtSpeed[0] = 0;
     }
 }
