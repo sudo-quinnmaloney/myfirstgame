@@ -46,7 +46,7 @@ var map = {}; // You could also use an array
 
 onkeyup = function(e){
   e = e || event; // to deal with IE
-  map[e.keyCode] = e.type == 'keyup';
+  map[e.keyCode] = e.type == 'keydown';
   
   if (map[38] || map[32] || map[65]) {
     rising = 0;
