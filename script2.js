@@ -46,6 +46,7 @@ window.addEventListener("keydown", function(e){
   if (pressed == 37 || pressed == 87{if (mvmtSpeed[0] < 3) {mvmtSpeed[0] += 3;}}
   // right arrow
   if (pressed == 39 || pressed == 68) { if (mvmtSpeed[0] > -3) {mvmtSpeed[0] -= 3;}}
+  // boost
   if (pressed == 16){ boost = 1; mvmtSpeed[0] *= 2;}
     },
 false);
