@@ -4,7 +4,7 @@ var block = document.getElementById("block");
 function jump {
   if (character.classList.contains("jumping")){return}
   
-  if (characater.classList != "jumping"){
+  if (character.classList != "jumping"){
     character.classList.add("jumping");
   }
   setTimeOut(jump(){character.classList.remove("jumping");},1000);
