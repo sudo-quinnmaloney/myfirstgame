@@ -5,3 +5,20 @@
   height:200px;
   border:1px solid black;
 }
+
+#character {
+  width: 20px;
+  height: 60px;
+  border: 1px solid black;
+  position: relative;
+  top: 140px;
+}
+
+#block {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  position: relative;
+  top: 180px;
+  left: 100px;
+}
