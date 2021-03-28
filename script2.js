@@ -6,7 +6,7 @@ var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width")
 var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));        
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
-var mvmtSpeed = [4,0];
+var mvmtSpeed = [0,0];
 
 
 function startJump() {
@@ -49,7 +49,7 @@ onkeydown = onkeyup = function(e){
       mvmtSpeed[1] -= 2;
     }
   
-    if ((map[37] || map[87]) && posLeft > 0) {
+    if (map[37] || map[87]) {
       // left arrow
       if (map[16]) {
         mvmtSpeed[0] = 6;
@@ -60,6 +60,5 @@ onkeydown = onkeyup = function(e){
       if (map[16]) {
         mvmtSpeed[0] = -6;
       } else { mvmtSpeed[0] = -4; }
-    }
     } else { mvmtSpeed[0] = 0; }
 }
