@@ -25,19 +25,19 @@ function checkKey(e) {
       mvmtSpeed = 12;
     } else { mvmtSpeed = 6; }
   
-    if (map[38] || map[32]) {
+    if (map[38] || map[32] || map[65]) {
       // up arrow
       startJump();
     }
     if (map[40]) {
         // down arrow
     }
-    if (map[37]) {
+    if (map[37] || map[87]) {
       // left arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft - mvmtSpeed + 'px';
     }
-    if (map[39]) {
+    if (map[39] || map[68]) {
        // right arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft + mvmtSpeed + 'px';
