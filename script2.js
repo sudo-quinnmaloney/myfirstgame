@@ -26,11 +26,11 @@ onkeydown = onkeyup = function(e){
     if (map[38] || map[32] || map[65]) {
       // up arrow
       if (mvmtSpeed[1] < 8) {
-        mvmtSpeed[1] += 1;
+        mvmtSpeed[1] += 2;
       }
       if (posTop > mvmtSpeed[1]){
         character.style.top = posTop - mvmtSpeed[1] + 'px';
-      }
+      } else {mvmtSpeed[1] = 0;}
     } else if (posTop < 140) {
       //fall
       mvmtSpeed[1] -= 2;
@@ -42,7 +42,7 @@ onkeydown = onkeyup = function(e){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft - mvmtSpeed[0] + 'px';
     }
-    if (map[39] || map[68] && posLeft < gameWidth - charWidth) {
+    if ((map[39] || map[68]) && posLeft < gameWidth - charWidth) {
        // right arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft + mvmtSpeed[0] + 'px';
