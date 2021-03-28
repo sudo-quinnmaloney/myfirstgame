@@ -53,12 +53,12 @@ onkeyup = function(e){
   }
   
   if (map[39] || map[68]) {
-    if (mvmtSpeed[0] > 0) {
+    if (mvmtSpeed[0] < 0) {
       mvmtSpeed[0] = 0;
     } else { mvmtSpeed[0] += 3; }
   }
   if (map[37] || map[87]) {
-    if (mvmtSpeed[0] < 0){
+    if (mvmtSpeed[0] > 0){
       mvmtSpeed[0] = 0;
     } else { mvmtSpeed[0] -= 3; }
   }
