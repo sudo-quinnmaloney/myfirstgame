@@ -18,7 +18,7 @@ var refreshGame = setInterval(function(){
       } else { mvmtSpeed[0] = 0;}
         
       if (rising == 1){ 
-        mvmtSpeed[1] += 2;
+        mvmtSpeed[1] += 1;
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         } else { 
@@ -46,15 +46,8 @@ onkeyup = function(e){
     rising = 0;
   }
   
-  if (map[39] || map[68]) {
-    if (mvmtSpeed[0] < 0) {
-      mvmtSpeed[0] = 0;
-    } else { mvmtSpeed[0] += 3; }
-  }
-  if (map[37] || map[87]) {
-    if (mvmtSpeed[0] > 0){
-      mvmtSpeed[0] = 0;
-    } else { mvmtSpeed[0] -= 3; }
+  if (map[39] || map[68] || map[37] || map[87]) {
+    mvmtSpeed[0] = 0;
   }
 }
   
