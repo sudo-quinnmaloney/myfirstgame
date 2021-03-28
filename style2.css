@@ -12,7 +12,7 @@
   border: 1px solid black;
   position: relative;
   top: 140px;
-  animation: jumping 2s infinite linear;
+  animation: jumping 1s infinite linear;
 }
 
 @keyframes jumping {
