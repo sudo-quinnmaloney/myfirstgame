@@ -21,15 +21,15 @@ onkeydown = onkeyup = function(e){
   
     if (map[16]) {
       mvmtSpeed[0] = 12;
-    } else { mvmtSpeed[1] = 6; }
+    } else { mvmtSpeed[0] = 6; }
     
     if (map[38] || map[32] || map[65]) {
       // up arrow
-      if (mvmtSpeed < 8) {
+      if (mvmtSpeed[1] < 8) {
         mvmtSpeed[1] += 1;
       }
-      if (posTop > mvmtSpeed){
-        character.style.top = posTop - mvmtSpeed[2] + 'px';
+      if (posTop > mvmtSpeed[1]){
+        character.style.top = posTop - mvmtSpeed[1] + 'px';
       }
     } else if (posTop < 140) {
       //fall
