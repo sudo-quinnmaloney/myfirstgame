@@ -15,11 +15,11 @@ var movingRight = 0;
 var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-      mvmtSpeed[0] = movingLeft * 3 + movingRight * -3;
+      mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > 0 && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < gameWidth - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
-      } else { mvmtSpeed[0] = 0; }
+      }
         
       if (rising == 1){ 
         if (mvmtSpeed[1] < 3) {
