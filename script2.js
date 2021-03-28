@@ -67,8 +67,10 @@ onkeydown = function(e){
       // right arrow
       mvmtSpeed[0] = -3;
     }
+    /*
     if ((map[39] || map[68]) && (map[37] || map[87])) {
       mvmtSpeed[0] = 0;
     }
+    */
     if (map[16]) { mvmtSpeed[0] *= 2; }
 }
