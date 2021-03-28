@@ -19,10 +19,10 @@ var refreshGame = setInterval(function(){
   
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > 0 && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < gameWidth - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
-      } else { mvmtSpeed[0] = 0; movingLeft = 0; movingRight = 0;}
+      } else { mvmtSpeed[0] = 0; }
         
       if (rising == 1){ 
-        if (mvmtSpeed[1] < 4) {
+        if (mvmtSpeed[1] < 3) {
           mvmtSpeed[1] += 1;
         }
         if (posTop > mvmtSpeed[1]) {
@@ -32,7 +32,7 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] = 0;
         }
        } else { 
-        mvmtSpeed[1] -= 2;
+        mvmtSpeed[1] -= 1;
         if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
           character.style.top = gameHeight-charHeight;
           mvmtSpeed[1] = 0;
