@@ -77,11 +77,13 @@ window.addEventListener("keyup",
     if ((unpressed == 37 || unpressed == 65) && mvmtSpeed[0] > 0) {
       if (movingLeft) {
         mvmtSpeed[0] = 0;
+        movingLeft = 0;
       } else {movingRight = 1; mvmtSpeed[0] = -3;}
     }
     if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
       if (movingRight) {
         mvmtSpeed[0] = 0;
+        movingRight = 0;
       } else {movingLeft = 1; mvmtSpeed[0] = 3;}
     }
     if (unpressed == 16) { 
