@@ -58,7 +58,7 @@ onkeydown = onkeyup = function(e){
         mvmtSpeed[0] = -6;
       } else { mvmtSpeed[0] = -3; }
     }
-    else if ((map[39] || map[68]) && (map[37] || map[87])) {
+    if ((map[39] || map[68]) && (map[37] || map[87])) {
       mvmtSpeed[0] = 0;
     }
 }
