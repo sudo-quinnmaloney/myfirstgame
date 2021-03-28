@@ -32,7 +32,7 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] = 0;
         }
        } else { 
-        if (mvmtSpeed[1] > -4) {
+        if (mvmtSpeed[1] > -5) {
           mvmtSpeed[1] -= 1;
         }
         if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
