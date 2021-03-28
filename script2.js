@@ -24,12 +24,12 @@ function checkKey(e) {
     else if (e.keyCode == '37') {
       // left arrow
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-      character.left = posLeft - 3;
+      character.style.left = posLeft - 3 + 'px';
     }
     else if (e.keyCode == '39') {
        // right arrow
       var pos = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-      character.left = posLeft + 3;
+      character.style.left = posLeft + 3 + 'px';
     }
 
 }
