@@ -34,7 +34,7 @@ onkeydown = onkeyup = function(e){
     } else if (posTop < 140) {
       //fall
       mvmtSpeed[1] -= 2;
-      character.style.top = posTop - mvmtSpeed[2] + 'px';
+      character.style.top = posTop - mvmtSpeed[1] + 'px';
     } else { mvmtSpeed[1] = 0; }
   
     if ((map[37] || map[87]) && posLeft > 0) {
