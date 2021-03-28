@@ -64,7 +64,7 @@ window.addEventListener("keydown",
 
 window.addEventListener("keyup", 
   function(e){
-    var unpressed == e.keyCode;
+    var unpressed = e.keyCode;
     if (unpressed == 38 || unpressed == 32 || unpressed == 65) {
       rising = 0;
     }
