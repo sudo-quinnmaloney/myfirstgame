@@ -9,6 +9,8 @@ var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("h
 var mvmtSpeed = [0,0];
 var rising = 0;
 var boost = 0;
+var movingLeft = 0;
+var movingRight = 0;
 
 var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
@@ -19,7 +21,9 @@ var refreshGame = setInterval(function(){
       } else { mvmtSpeed[0] = 0;}
         
       if (rising == 1){ 
-        mvmtSpeed[1] += 1;
+        if (mvmtSpeed[1] < 4) {
+          mvmtSpeed[1] += 1;
+        }
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         } else { 
@@ -46,13 +50,13 @@ window.addEventListener("keydown",
     }
     // left arrow
     if (pressed == 37 || pressed == 87) {
-      if (mvmtSpeed[0] < 3) {
+      if (!movingLeft){
         mvmtSpeed[0] += 3;
       }
     }
     // right arrow
     if (pressed == 39 || pressed == 68) { 
-      if (mvmtSpeed[0] > -3) {
+      if (!movingRight) {
         mvmtSpeed[0] -= 3;
       }
     }
@@ -69,9 +73,11 @@ window.addEventListener("keyup",
       rising = 0;
     }
     if ((unpressed == 37 || unpressed == 87) && mvmtSpeed[0] > 0) {
+      movingRight = 0;
       mvmtSpeed[0] -= 3;
     }
     if ((unpressed == 39 || unpressed == 68) && mvmtSpeed[0] < 0) {
+      movingLeft = 0;
       mvmtSpeed[0] += 3;
     }
     if (unpressed == 16) { 
