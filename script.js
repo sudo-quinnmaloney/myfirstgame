@@ -1,12 +1,9 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 
-function jump {
-  if (character.classList.contains("jumping")){return}
-  
-  if (character.classList != "jumping"){
-    character.classList.add("jumping");
-  }
+function jump() {
+  if (character.classList.contains("jumping")){return;}
+  character.classList.add("jumping");
   setTimeOut(jump(){character.classList.remove("jumping");},1000);
 }
 
