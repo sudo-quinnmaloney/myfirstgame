@@ -28,7 +28,7 @@ function checkKey(e) {
     }
     else if (e.keyCode == '39') {
        // right arrow
-      var pos = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
+      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       character.style.left = posLeft + 3 + 'px';
     }
 
