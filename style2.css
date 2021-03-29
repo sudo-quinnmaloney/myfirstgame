@@ -40,7 +40,6 @@
 }
 
 @keyframes folding {
-  0%{width:20px;}
-  50%{width:10px;}
-  100%{width:0px;}
+  from {width:20px;}
+  to {width:0px;}
 }
