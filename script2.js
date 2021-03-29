@@ -18,8 +18,9 @@ var movingLeft = 0;
 var movingRight = 0;
 
 function respawnBlock(num) {
-  block.style.animation = "folding 1s infinite linear";
+  block.style.animation = "folding 1s linear";
   block.style.left = 100 + "%";
+  block.style.width = 20 + 'px';
   block.style.animation = "sliding 5s infinite linear";
 }
 
