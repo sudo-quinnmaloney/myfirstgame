@@ -10,6 +10,9 @@ var game = document.getElementById("game");
 var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
 var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
 
+var scoreDisplay = document.getElementById("collected");
+var score = 0;
+
 var mvmtSpeed = [0,0];
 var rising = 0;
 var boost = 0;
@@ -29,6 +32,8 @@ function respawnCoin() {
 }
 
 function collide() {
+  score++;
+  scoreDisplay.innerHTML = score;
   respawnCoin();
 }
 
