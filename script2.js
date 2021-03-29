@@ -18,6 +18,8 @@ var movingLeft = 0;
 var movingRight = 0;
 
 function respawnBlock(num) {
+  block.style.animation = "none";
+  block.style.left = 100 + "%";
   block.style.animation = "sliding 5s infinite linear";
 }
 
