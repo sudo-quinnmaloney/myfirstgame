@@ -11,7 +11,7 @@
   top: 90%;
   width: 10%;
   height: 10%;
-  align: center;
+  margin: auto;
   border:1px solid black;
 }
 
@@ -21,7 +21,6 @@
 
 #stamina {
   width: 100%;
-  margin: auto;
   padding-top: 0px;
   background-color: #66ccff;
 }
