@@ -27,12 +27,11 @@ var refreshGame = setInterval(function(){
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
   
       var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
-      
-      alert(blockTop);
+      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top")) + 63;
   
       if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
         block.style.backgroundColor = "red";
+        alert("Collision at block: " + blockTop + ", and character: " + posTop);
       } else { 
         block.style.backgroundColor = "black"; 
       }
