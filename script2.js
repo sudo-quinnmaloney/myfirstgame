@@ -2,7 +2,8 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var game = document.getElementById("game");
-        
+var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
+var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var mvmtSpeed = [0,0];
@@ -11,14 +12,22 @@ var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
 
+var checkBounds = setInterval(function(){       
+  gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
+  gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
+}, 3000);
+
 var refreshGame = setInterval(function(){
-      var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
-      var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+  
+      var base = gameHeight;
+      var rightBound = gameWidth;
+      var leftBound = 0;
+  
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
-      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > 0 && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < gameWidth - charWidth) {
+      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < rightBound - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
         
@@ -36,8 +45,8 @@ var refreshGame = setInterval(function(){
         if (mvmtSpeed[1] > -5) {
           mvmtSpeed[1] -= 1;
         }
-        if (posTop - mvmtSpeed[1] > gameHeight-charHeight) {
-          character.style.top = gameHeight-charHeight;
+        if (posTop - mvmtSpeed[1] > base-charHeight) {
+          character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
