@@ -26,7 +26,7 @@ function respawnCoin() {
   setTimeOut(function(){ 
     //coin.classList.remove("collapse");
     coin.classList.add("slideAcross");
-  },500); 
+  },5); 
 }
 
 function collide() {
