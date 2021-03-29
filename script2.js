@@ -17,7 +17,7 @@ var movingLeft = 0;
 var movingRight = 0;
 
 function respawnCoin() {
-  if (coin.classList.contains("folding")){return;}
+  if (coin.classList.contains("collapse")){return;}
   coin.classList.remove("slideAcross");
   coin.classList.add("collapse");
   setTimeOut(respawnCoin(){ 
