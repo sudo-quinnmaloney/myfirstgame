@@ -35,8 +35,8 @@
 }
 
 .collapse {
-  animation: folding 1s linear;
-  animation-fill-mode: backwards;
+  animation: folding 2s linear;
+  animation-fill-mode: none;
 }
 
 @keyframes folding {
