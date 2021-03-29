@@ -34,6 +34,10 @@
   100%{left:-5%;}
 }
 
+.collapse {
+  animation: folding 1s linear;
+}
+
 @keyframes folding {
   0%{width:20px;}
   100%{width:0px;}
