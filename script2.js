@@ -21,7 +21,10 @@ function respawnBlock() {
   if (block.classList.contains("folding")){return;}
   block.classList.remove("slideAcross");
   block.classList.add("collapse");
-  setTimeOut(respawnBlock(){block.classList.remove("collapse"); block.classList.add("slideAcross");},1000);
+  setTimeOut(respawnBlock(){
+    block.classList.remove("collapse"); 
+    block.classList.add("slideAcross");
+  },1000);
 }
 
 function collide() {
