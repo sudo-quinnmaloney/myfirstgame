@@ -27,7 +27,7 @@ var refreshGame = setInterval(function(){
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
   
       var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
+      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top")) + 63;
       
       if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
         block.style.backgroundColor = "red";
