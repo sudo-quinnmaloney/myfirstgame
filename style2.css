@@ -26,7 +26,7 @@
 }
 
 .slideAcross {
-  animation: sliding 5s infinite linear backwards;
+  animation: sliding 5s infinite linear;
 }
 
 @keyframes sliding {
@@ -35,10 +35,11 @@
 }
 
 .collapse {
-  animation: folding 1s linear;
+  animation: folding 1s linear backwards;
 }
 
 @keyframes folding {
   0%{width:20px;}
+  50%{width:10px;}
   100%{width:0px;}
 }
