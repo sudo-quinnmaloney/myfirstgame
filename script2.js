@@ -2,7 +2,7 @@ var character = document.getElementById("character");
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 
-var coin = document.getElementById("block");
+var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
 var blockHeight = parseInt(window.getComputedStyle(coin).getPropertyValue("height"));
 
@@ -20,7 +20,7 @@ function respawnCoin() {
   if (coin.classList.contains("collapse")){return;}
   coin.classList.remove("slideAcross");
   coin.classList.add("collapse");
-  setTimeOut(respawnCoin(){ 
+  setTimeOut(function(){ 
     coin.classList.remove("collapse");
     coin.classList.add("slideAcross");
   },1000); 
