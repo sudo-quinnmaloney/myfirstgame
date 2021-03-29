@@ -68,16 +68,17 @@ var refreshGame = setInterval(function(){
       var base = gameHeight;
       var rightBound = gameWidth;
       var leftBound = 0;
+      var effectiveBoost = boost;
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
-      if (boost && stamina <= 0) { boost = 0; } 
+      if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= 10; } 
       else if (stamina < 100) { stamina += 10; }
       staminaBar.style.width = stamina + '%';
 
-      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < rightBound - charWidth) {
-        character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
+      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
+        character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
       
       if (rising == 1){ 
