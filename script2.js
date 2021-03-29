@@ -29,9 +29,11 @@ var refreshGame = setInterval(function(){
       var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
       var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
       
-      if (posLeft - blockWidth < blockLeft < charWidth + posLeft && posTop - blockHeight < blockTop < posTop + charHeight) {
+      if (posLeft - blockWidth < blockLeft && blockLeft < charWidth + posLeft && posTop - blockHeight < blockTop && blockTop < posTop + charHeight) {
         block.style.color = red;
-      } else { block.style.color = white; }
+      } else { 
+        block.style.color = white; 
+      }
   
       var base = gameHeight;
       var rightBound = gameWidth;
