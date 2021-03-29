@@ -19,7 +19,7 @@ var movingRight = 0;
 
 function respawnBlock(num) {
   alert("respawnBlock() called.");
-  block.style.animation = sliding 5s infinite linear;
+  block.style.animation = "sliding 5s infinite linear";
 }
 
 function collide() {
