@@ -13,6 +13,9 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
 
+var staminaBar = document.getElementById("stamina");
+var stamina = 100;
+
 var mvmtSpeed = [0,0];
 var rising = 0;
 var boost = 0;
@@ -68,10 +71,15 @@ var refreshGame = setInterval(function(){
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
+      if (boost && stamina <= 0) {} 
+      else if (boost) { stamina -= 10; } 
+      else if (stamina < 100) { stamina += 10; }
+      staminaBar.style.width = stamina + '%';
+
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost < rightBound - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * boost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
-        
+      
       if (rising == 1){ 
         if (mvmtSpeed[1] < 3) {
           mvmtSpeed[1] += 1;
