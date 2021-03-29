@@ -8,8 +8,8 @@
 }
 
 #statusBar {
-  width: 80px;
-  height: 30px;
+  width: 10%;
+  height: 10%;
   border:1px solid black;
 }
 
@@ -19,8 +19,8 @@
 
 #stamina {
   width: 100%;
-  height: 4px;
-  top:26px;
+  height: 15%;
+  padding-top: 0px;
   background-color: #66ccff;
 }
 
