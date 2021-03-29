@@ -15,6 +15,7 @@ var score = 0;
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
+var staminaIncrement = 5;
 
 var mvmtSpeed = [0,0];
 var rising = 0;
@@ -73,8 +74,8 @@ var refreshGame = setInterval(function(){
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
-      else if (boost) { stamina -= 10; } 
-      else if (stamina < 100) { stamina += 10; }
+      else if (boost) { stamina -= staminaIncrement; } 
+      else if (stamina < 100) { stamina += staminaIncrement; }
       staminaBar.style.width = stamina + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
