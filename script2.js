@@ -17,15 +17,15 @@ var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
 
-function respawnBlock(num) {
+function respawnBlock() {
   if (block.classList.contains("folding")){return;}
   block.classList.remove("slideAcross");
   block.classList.add("collapse");
-  setTimeOut(respawnBlock(num){block.classList.remove("collapse"); block.classList.add("slideAcross");},1000);
+  setTimeOut(respawnBlock(){block.classList.remove("collapse"); block.classList.add("slideAcross");},1000);
 }
 
 function collide() {
-  respawnBlock(0);
+  respawnBlock();
 }
 
 var checkBounds = setInterval(function(){       
