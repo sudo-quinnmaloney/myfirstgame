@@ -75,7 +75,7 @@ var refreshGame = setInterval(function(){
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= staminaIncrement; } 
-      else if (stamina < 100) { stamina += staminaIncrement; }
+      else if (stamina < 100) { stamina += staminaIncrement/2; }
       staminaBar.style.width = Math.floor(stamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
