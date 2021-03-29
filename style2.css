@@ -11,10 +11,15 @@
   width: 10%;
   height: 10%;
   border:1px solid black;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 #score {
   text-align: center;
+}
+#collected {
+  horizontal-alignment: center;
 }
 
 #stamina {
