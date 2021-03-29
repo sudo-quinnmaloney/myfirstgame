@@ -2,8 +2,7 @@
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var game = document.getElementById("game");
-var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
-var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));        
+        
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var mvmtSpeed = [0,0];
@@ -13,6 +12,8 @@ var movingLeft = 0;
 var movingRight = 0;
 
 var refreshGame = setInterval(function(){
+      var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
+      var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
