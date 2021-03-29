@@ -18,7 +18,7 @@ var movingRight = 0;
 
 function respawnCoin() {
   if (coin.classList.contains("collapse")){return;}
-  var newTop = Math.floor(Math.random() * 180);
+  var newTop = Math.floor(Math.random() * gameHeight - blockHeight);
   coin.style.top = newTop - 63 + 'px';
   /*
   coin.classList.remove("slideAcross");
