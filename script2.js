@@ -33,8 +33,14 @@ function collide() {
 }
 
 var checkBounds = setInterval(function(){       
-  gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
-  gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
+  var newgameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
+  var newgameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
+  if (newgameWidth != gameWidth || newgameHeight != gameHeight) {
+    character.style.left = 10 +'%';
+    character.style.top = gameHeight - charHeight - 1 + 'px';
+    gameWidth = newgameWidth;
+    gameHeight = newgameHeight;
+  }
 }, 3000);
 
 var refreshGame = setInterval(function(){
