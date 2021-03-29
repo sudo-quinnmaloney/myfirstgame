@@ -17,6 +17,14 @@ var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
 
+function respawnBlock(num) {
+  block.style.left = 100 + '%';
+}
+
+function collide() {
+  respawnBlock(0);
+}
+
 var checkBounds = setInterval(function(){       
   gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
   gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
@@ -31,7 +39,7 @@ var refreshGame = setInterval(function(){
   
       if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
         block.style.backgroundColor = "red";
-        alert("Collision at block: " + blockTop + ", and character: " + posTop);
+        collide();
       } else { 
         block.style.backgroundColor = "black"; 
       }
