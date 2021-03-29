@@ -1,11 +1,16 @@
   
 var character = document.getElementById("character");
+var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
+var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
+
 var block = document.getElementById("block");
+var blockWidth = parseInt(window.getComputedStyle(block).getPropertyValue("width"));
+var blockHeight = parseInt(window.getComputedStyle(block).getPropertyValue("height"));
+
 var game = document.getElementById("game");
 var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
 var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height"));
-var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
-var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
+
 var mvmtSpeed = [0,0];
 var rising = 0;
 var boost = 0;
@@ -20,6 +25,13 @@ var checkBounds = setInterval(function(){
 var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+  
+      var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
+      
+      if (posLeft - blockWidth < blockLeft < charWidth + posLeft && posTop - blockHeight < blockTop < posTop + charHeight) {
+        block.style.color = red;
+      } else { block.style.color = white; }
   
       var base = gameHeight;
       var rightBound = gameWidth;
