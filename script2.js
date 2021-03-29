@@ -1,11 +1,10 @@
-  
 var character = document.getElementById("character");
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 
-var block = document.getElementById("block");
-var blockWidth = parseInt(window.getComputedStyle(block).getPropertyValue("width"));
-var blockHeight = parseInt(window.getComputedStyle(block).getPropertyValue("height"));
+var coin = document.getElementById("block");
+var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
+var blockHeight = parseInt(window.getComputedStyle(coin).getPropertyValue("height"));
 
 var game = document.getElementById("game");
 var gameWidth = parseInt(window.getComputedStyle(game).getPropertyValue("width"));
@@ -17,18 +16,16 @@ var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
 
-function respawnBlock() {
-  if (block.classList.contains("folding")){return;}
-  block.classList.remove("slideAcross");
-  block.classList.add("collapse");
-  setTimeOut(respawnBlock(){
-    block.classList.remove("collapse"); 
-    block.classList.add("slideAcross");
-  },1000);
+function respawnCoin() {
+  if (coin.classList.contains("folding")){return;}
+  coin.classList.remove("slideAcross");
+  coin.classList.add("collapse");
+  setTimeOut(respawnCoin(){ coin.classList.remove("collapse");},1000);
+  coin.classList.add("slideAcross"); 
 }
 
 function collide() {
-  respawnBlock();
+  respawnCoin();
 }
 
 var checkBounds = setInterval(function(){       
@@ -40,14 +37,14 @@ var refreshGame = setInterval(function(){
       var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
   
-      var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-      var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top")) + 63;
+      var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
+      var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
   
       if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
-        block.style.backgroundColor = "red";
+        coin.style.backgroundColor = "red";
         collide();
       } else { 
-        block.style.backgroundColor = "black"; 
+        coin.style.backgroundColor = "black"; 
       }
   
       var base = gameHeight;
