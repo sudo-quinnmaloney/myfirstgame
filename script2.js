@@ -30,9 +30,9 @@ var refreshGame = setInterval(function(){
       var blockTop = parseInt(window.getComputedStyle(block).getPropertyValue("top"));
       
       if (posLeft - blockWidth < blockLeft && blockLeft < charWidth + posLeft && posTop - blockHeight < blockTop && blockTop < posTop + charHeight) {
-        block.style.color = "red";
+        block.style.backgroundColor = "red";
       } else { 
-        block.style.color = "black"; 
+        block.style.backgroundColor = "black"; 
       }
   
       var base = gameHeight;
