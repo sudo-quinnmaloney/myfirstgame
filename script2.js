@@ -20,8 +20,10 @@ function respawnCoin() {
   if (coin.classList.contains("folding")){return;}
   coin.classList.remove("slideAcross");
   coin.classList.add("collapse");
-  setTimeOut(respawnCoin(){ coin.classList.remove("collapse");},1000);
-  coin.classList.add("slideAcross"); 
+  setTimeOut(respawnCoin(){ 
+    coin.classList.remove("collapse");
+    coin.classList.add("slideAcross");
+  },1000); 
 }
 
 function collide() {
