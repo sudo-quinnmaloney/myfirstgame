@@ -8,7 +8,7 @@
 }
 
 #statusBar {
-  top: 90%
+  top: 90%;
   width: 10%;
   height: 10%;
   border:1px solid black;
@@ -16,9 +16,6 @@
 
 #score {
   text-align: center;
-}
-#collected {
-  horizontal-alignment: center;
 }
 
 #stamina {
