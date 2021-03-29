@@ -71,7 +71,7 @@ var refreshGame = setInterval(function(){
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
   
-      if (boost && stamina <= 0) {} 
+      if (boost && stamina <= 0) { boost = 0; } 
       else if (boost) { stamina -= 10; } 
       else if (stamina < 100) { stamina += 10; }
       staminaBar.style.width = stamina + '%';
