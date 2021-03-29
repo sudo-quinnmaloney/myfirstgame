@@ -19,9 +19,9 @@ var movingRight = 0;
 function respawnCoin() {
   if (coin.classList.contains("collapse")){return;}
   coin.classList.remove("slideAcross");
-  coin.classList.add("collapse");
+  //coin.classList.add("collapse");
   setTimeOut(function(){ 
-    coin.classList.remove("collapse");
+    //coin.classList.remove("collapse");
     coin.classList.add("slideAcross");
   },1000); 
 }
