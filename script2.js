@@ -18,10 +18,10 @@ var movingLeft = 0;
 var movingRight = 0;
 
 function respawnBlock(num) {
-  block.style.setProperty("animation", "folding 1s linear");
-  block.style.left = 100 + "%";
-  block.style.width = 20 + 'px';
-  block.style.setProperty("animation", "sliding 5s infinite linear");
+  if (block.classList.contains("folding")){return;}
+  character.classList.remove("slideAcross");
+  character.classList.add("folding");
+  setTimeOut(respawnBlock(num){block.classList.remove("folding"); block.classList.add("slideAcross");},1000);
 }
 
 function collide() {
