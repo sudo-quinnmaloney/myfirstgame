@@ -18,12 +18,16 @@ var movingRight = 0;
 
 function respawnCoin() {
   if (coin.classList.contains("collapse")){return;}
+  var newTop = Math.floor(Math.random() * 180);
+  coin.style.top = newTop - 63 + 'px';
+  /*
   coin.classList.remove("slideAcross");
   //coin.classList.add("collapse");
   setTimeOut(function(){ 
     //coin.classList.remove("collapse");
     coin.classList.add("slideAcross");
   },1000); 
+  */
 }
 
 function collide() {
