@@ -18,10 +18,12 @@ var movingLeft = 0;
 var movingRight = 0;
 
 function respawnBlock(num) {
-  block.style.left = 100 + '%';
+  alert("respawnBlock() called.");
+  block.style.animation = sliding 5s infinite linear;
 }
 
 function collide() {
+  alert("collide() called.");
   respawnBlock(0);
 }
 
