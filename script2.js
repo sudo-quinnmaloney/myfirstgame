@@ -32,7 +32,7 @@ var refreshGame = setInterval(function(){
       if (posLeft - blockWidth < blockLeft && blockLeft < charWidth + posLeft && posTop - blockHeight < blockTop && blockTop < posTop + charHeight) {
         block.style.color = "red";
       } else { 
-        block.style.color = "white"; 
+        block.style.color = "black"; 
       }
   
       var base = gameHeight;
