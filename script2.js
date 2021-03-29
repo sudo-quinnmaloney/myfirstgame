@@ -19,9 +19,9 @@ var movingRight = 0;
 
 function respawnBlock(num) {
   if (block.classList.contains("folding")){return;}
-  character.classList.remove("slideAcross");
-  character.classList.add("folding");
-  setTimeOut(respawnBlock(num){block.classList.remove("folding"); block.classList.add("slideAcross");},1000);
+  block.classList.remove("slideAcross");
+  block.classList.add("collapse");
+  setTimeOut(respawnBlock(num){block.classList.remove("collapse"); block.classList.add("slideAcross");},1000);
 }
 
 function collide() {
