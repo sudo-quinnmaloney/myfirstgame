@@ -13,6 +13,16 @@
   border:1px solid black;
 }
 
+#score {
+  text-align: center;
+}
+
+#stamina {
+  width: 100%;
+  height: 4px;
+  background-color: #66ccff;
+}
+
 #character {
   width: 20px;
   height: 60px;
