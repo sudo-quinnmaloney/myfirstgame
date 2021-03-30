@@ -42,7 +42,7 @@ function respawnCoin() {
 
 function checkLevel() {
   if (score == 30) {
-    coinSpeed.style.setProperty("animation-duration","4s");
+    coinSpeed.style.setProperty("animation-duration","3.5s");
     winds.style.color = "black";
     return;
   }
@@ -133,7 +133,7 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] = 0;
         }
        } else if (stomping) {
-          mvmtSpeed[1] = -9;
+          mvmtSpeed[1] = -10;
           if (posTop - mvmtSpeed[1] > base-charHeight) {
             character.style.top = base-charHeight;
             mvmtSpeed[1] = 0;
