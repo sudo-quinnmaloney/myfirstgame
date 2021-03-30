@@ -113,7 +113,7 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
-          if (stall == 5) {
+          if (stall == 50) {
             stall = 0;
             stomping = 0;
           } else { stall++; }
