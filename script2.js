@@ -12,7 +12,7 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
-var carrot = document.getElementById("carrot");
+var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 
 var staminaBar = document.getElementById("stamina");
