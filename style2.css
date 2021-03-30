@@ -11,6 +11,11 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+#caption {
+  padding-left:15%;
+  padding-right:15%;
+}
+
 #statusBar {
   width: 10%;
   height: 10%;
