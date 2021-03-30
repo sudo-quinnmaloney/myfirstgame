@@ -44,13 +44,13 @@ function checkLevel() {
     winds.style.color = "black";
     return;
   }
+  if (score > 70) {
+    return;
+  }
   if (score > 100) {
     return;
   }
   if (score > 120) {
-    return;
-  }
-  if (score > 150) {
     return;
   }
 }
