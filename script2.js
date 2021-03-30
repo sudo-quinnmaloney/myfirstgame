@@ -29,6 +29,7 @@ var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
 var revealText = 0;
+var stall = 0;
 
 function respawnCoin() {
   var newTop = Math.floor(Math.random() * (gameHeight - blockHeight));
@@ -112,7 +113,10 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
-          stomping = 0;
+          if (stall == 5) {
+            stall = 0;
+            stomping = 0;
+          } else { stall++; }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
@@ -175,8 +179,8 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score > 10 && stamina >= 50) {
-      stamina -= 50;
+    if (pressed == 32 && score > 10 && stamina >= 40) {
+      stamina -= 40;
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
     }
