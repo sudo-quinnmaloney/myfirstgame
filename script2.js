@@ -97,7 +97,7 @@ var refreshGame = setInterval(function(){
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
       var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
   
-      if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft) && (stomping || (posTop < blockHeight + blockTop && posTop + charHeight > blockTop)) {
+      if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && (stomping || (posTop < blockHeight + blockTop && posTop + charHeight > blockTop))) {
         collide();
       }
   
