@@ -51,11 +51,11 @@ var checkBounds = setInterval(function(){
     gameHeight = newgameHeight;
   }
   switch (revealText) {
-    case 1: 
+    case 1.0: 
       sprint.style.color = "black";
       revealText += .2;
       break;
-    case 2:
+    case 2.0:
       carrot.style.color = "black";
       if (coin.classList.contains("slideAcross")){break;}
       coin.classList.add("slideAcross");
@@ -134,8 +134,8 @@ window.addEventListener("keydown",
       movingRight = 1;
     }
     // boost
-    if (pressed == 16 && revealText > 1) {
-      if (revealText < 2) { revealText += .2; }
+    if (pressed == 16) {
+      if (revealText < 2 && revealText > 1) { revealText += .2; }
       boost = 1;
     }
 },false);
