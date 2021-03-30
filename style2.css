@@ -36,9 +36,6 @@
 
 #character_spritesheet {
   height: 58px;
-}
-
-.moveSprite {
   animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
