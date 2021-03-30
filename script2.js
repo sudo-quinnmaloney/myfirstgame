@@ -17,6 +17,7 @@ var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
 var stomp = document.getElementById("stomp");
+var wasd = document.getElecmentById("wasd");
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
@@ -41,21 +42,25 @@ function respawnCoin() {
 }
 
 function checkLevel() {
-  if (score == 5) {
-    var coinSpeed = document.getElementsByClassName("slideAcross")[0];
-    winds.style.color = "black";
-    coinSpeed.style.animationDuration = "3.5s";
-    return;
-  }
-  if (score == 10) {
-    stomp.style.color = "black";
-    return;
-  }
-  if (score == 100) {
-    return;
-  }
-  if (score == 120) {
-    return;
+  switch(score) {
+    case(25):
+      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
+      winds.style.color = "black";
+      coinSpeed.style.animationDuration = "3.5s";
+      break;
+    case(10):
+      wasd.style.color = "transparent";
+      break;
+    case(35):
+      winds.style.color = "transparent";
+    case(50):
+      stomp.style.color = "black";
+      break;
+    case(60):
+      stomp.style.color = "transparent";
+      break;
+    default:
+      break;
   }
 }
 
