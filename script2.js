@@ -3,6 +3,7 @@ var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("wi
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 
 var coin = document.getElementById("coin");
+var coinSpeed = document.getElementsByClassName("slideAcross");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
 var blockHeight = parseInt(window.getComputedStyle(coin).getPropertyValue("height"));
 
@@ -39,7 +40,7 @@ function respawnCoin() {
 
 function checkLevel() {
   if (score > 50) {
-    coin.style.setProperty("animation","sliding 4s infinite linear");
+    coinSpeed.style.setProperty("animation-duration","4s");
     winds.style.color = "black";
     return;
   }
