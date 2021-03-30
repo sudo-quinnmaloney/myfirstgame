@@ -17,7 +17,9 @@ var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
 var winds2 = document.getElementById("winds2");
+var winds3 = document.getElementById("winds3");
 var stomp = document.getElementById("stomp");
+var boostedStomp = document.getElementById("boostedStomp");
 var wasd = document.getElementById("wasd");
 
 var staminaBar = document.getElementById("stamina");
@@ -66,7 +68,23 @@ function checkLevel() {
     case(75):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds2.style.color = "black";
-      coinSpeed.style.animationDuration = "3.5s";
+      coinSpeed.style.animationDuration = "3s";
+      break;
+    case(82):
+      winds2.style.color = "transparent";
+      break;
+    case(90):
+      boostedStomp.style.color = "black";
+      break;
+    case(100):
+      boostedStomp.style.color = "transparent";
+      break;
+    case(110):
+      winds3.style.color = "black";
+      break;
+    case(115):
+      winds3.style.color = "transparent";
+      break;
     default:
       break;
   }
