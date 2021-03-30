@@ -61,7 +61,7 @@
 }
 
 .slideAcross {
-  animation: sliding 5s infinite linear;
+  animation: sliding 5s steps(4) infinite;
 }
 
 @keyframes sliding {
