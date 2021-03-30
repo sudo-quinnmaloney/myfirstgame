@@ -12,6 +12,8 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
+var carrot = document.getElementById("carrot");
+var sprint = document.getElementById("sprint");
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
@@ -22,6 +24,7 @@ var rising = 0;
 var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
+var revealText = 0;
 
 function respawnCoin() {
   if (coin.classList.contains("collapse")){return;}
@@ -49,6 +52,17 @@ var checkBounds = setInterval(function(){
     character.style.top = gameHeight - charHeight - 1 + 'px';
     gameWidth = newgameWidth;
     gameHeight = newgameHeight;
+  }
+  switch (revealText) {
+    case 0: 
+      sprint.style.color = "black";
+      break;
+    case 1:
+      carrot.style.color = "black";
+      coin.classList.add("slideAcross");
+      break;
+    default:
+      break;
   }
 }, 3000);
 
@@ -107,18 +121,22 @@ window.addEventListener("keydown",
     var pressed = e.keyCode;
     // up arrow
     if (pressed == 38 || pressed == 87 || pressed == 32) {
+      if (revealText < 1) { revealText += .1; }
       rising = 1;
     }
     // left arrow
     if (pressed == 37 || pressed == 65) {
+      if (revealText < 1) { revealText += .1; }
       movingLeft = 1;
     }
     // right arrow
-    if (pressed == 39 || pressed == 68) { 
+    if (pressed == 39 || pressed == 68) {
+      if (revealText < 1) { revealText += .1; }
       movingRight = 1;
     }
     // boost
-    if (pressed == 16) { 
+    if (pressed == 16) {
+      if (revealText >= 1 && revealText < 2) { revealText += .2; }
       boost = 1;
     }
 },false);
