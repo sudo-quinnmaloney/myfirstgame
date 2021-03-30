@@ -32,10 +32,11 @@
   position: relative;
   left: 10%;
   top: 340px;
+  overflow: hidden;
 }
 
 #character_spritesheet {
-  height: 60px;
+  height: 58px;
 }
 
 #coin {
