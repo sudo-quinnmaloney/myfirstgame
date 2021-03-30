@@ -42,7 +42,7 @@ function respawnCoin() {
 
 function checkLevel() {
   if (score == 30) {
-    coinSpeed.style.setProperty("animation-duration","3.5s");
+    coinSpeed.style.setProperty("animation","sliding 3.5s linear infinite");
     winds.style.color = "black";
     return;
   }
@@ -108,10 +108,16 @@ var refreshGame = setInterval(function(){
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
       if (stomping) {
-        rising = 0;
-        movingLeft = 0;
-        movingRight = 0;
-      }
+        mvmtSpeed[1] = -10;
+        if (posTop - mvmtSpeed[1] > base-charHeight) {
+          character.style.top = base-charHeight;
+          mvmtSpeed[1] = 0;
+          stomping = 0;
+        } else {
+          character.style.top = posTop - mvmtSpeed[1] + 'px';
+        }
+        return;
+       } 
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= staminaIncrement; } 
@@ -128,19 +134,10 @@ var refreshGame = setInterval(function(){
         }
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
-        } else { 
+        } else {
           character.style.top = 0; 
           mvmtSpeed[1] = 0;
         }
-       } else if (stomping) {
-          mvmtSpeed[1] = -10;
-          if (posTop - mvmtSpeed[1] > base-charHeight) {
-            character.style.top = base-charHeight;
-            mvmtSpeed[1] = 0;
-            stomping = 0;
-          } else {
-            character.style.top = posTop - mvmtSpeed[1] + 'px';
-          }
        } else { 
         if (mvmtSpeed[1] > -6) {
           mvmtSpeed[1] -= 1;
