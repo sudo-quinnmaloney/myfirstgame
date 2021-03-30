@@ -31,9 +31,7 @@ function respawnCoin() {
   coin.style.top = newTop - 63 + 'px';
   
   coin.classList.remove("slideAcross");
-  //coin.classList.add("collapse");
   void coin.offsetWidth;
-  //coin.classList.remove("collapse");
   coin.classList.add("slideAcross"); 
 }
 
@@ -53,10 +51,10 @@ var checkBounds = setInterval(function(){
     gameHeight = newgameHeight;
   }
   switch (revealText) {
-    case 0: 
+    case 1: 
       sprint.style.color = "black";
       break;
-    case 1:
+    case 2:
       carrot.style.color = "black";
       if (coin.classList.contains("slideAcross")){break;}
       coin.classList.add("slideAcross");
