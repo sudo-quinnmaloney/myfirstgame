@@ -60,10 +60,7 @@ var refreshGame = setInterval(function(){
       var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
   
       if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
-        coin.style.backgroundColor = "red";
         collide();
-      } else { 
-        coin.style.backgroundColor = "black"; 
       }
   
       var base = gameHeight;
