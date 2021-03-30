@@ -12,8 +12,10 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
+
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
+var winds = document.getElementById("winds");
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
@@ -35,9 +37,27 @@ function respawnCoin() {
   coin.classList.add("slideAcross"); 
 }
 
+function checkLevel() {
+  if (score > 50) {
+    coin.style.setProperty("animation","sliding 4s infinite linear");
+    
+    return;
+  }
+  if (score > 100) {
+    return;
+  }
+  if (score > 120) {
+    return;
+  }
+  if (score > 150) {
+    return;
+  }
+}
+
 function collide() {
   score++;
   scoreDisplay.innerHTML = score;
+  checkLevel();
   respawnCoin();
 }
 
