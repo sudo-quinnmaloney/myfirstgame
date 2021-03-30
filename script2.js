@@ -40,7 +40,7 @@ function respawnCoin() {
 function checkLevel() {
   if (score > 50) {
     coin.style.setProperty("animation","sliding 4s infinite linear");
-    
+    winds.style.color = "black";
     return;
   }
   if (score > 100) {
