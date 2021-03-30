@@ -60,7 +60,6 @@ function checkLevel() {
       stomp.style.color = "transparent";
       break;
     default:
-      break;
   }
 }
 
