@@ -27,7 +27,6 @@ var movingRight = 0;
 var revealText = 0;
 
 function respawnCoin() {
-  if (coin.classList.contains("collapse")){return;}
   var newTop = Math.floor(Math.random() * (gameHeight - blockHeight));
   coin.style.top = newTop - 63 + 'px';
   
@@ -59,6 +58,7 @@ var checkBounds = setInterval(function(){
       break;
     case 1:
       carrot.style.color = "black";
+      if (coin.classList.contains("slideAcross")){break;}
       coin.classList.add("slideAcross");
       break;
     default:
