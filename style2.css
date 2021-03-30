@@ -15,7 +15,9 @@
   padding-left:15%;
   padding-right:15%;
 }
-
+#wasd, #carrot, #sprint {
+  color: white;
+}
 #statusBar {
   width: 10%;
   height: 10%;
