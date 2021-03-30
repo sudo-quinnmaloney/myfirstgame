@@ -16,6 +16,7 @@ var score = 0;
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
+var winds2 = document.getElementById("winds2");
 var stomp = document.getElementById("stomp");
 var wasd = document.getElementById("wasd");
 
@@ -62,6 +63,10 @@ function checkLevel() {
     case(60):
       stomp.style.color = "transparent";
       break;
+    case(75):
+      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
+      winds2.style.color = "black";
+      coinSpeed.style.animationDuration = "3.5s";
     default:
       break;
   }
@@ -91,6 +96,7 @@ var checkBounds = setInterval(function(){
       break;
     case 2:
       carrot.style.color = "black";
+      revealText += .2;
       if (coin.classList.contains("slideAcross")){break;}
       coin.classList.add("slideAcross");
       break;
