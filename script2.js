@@ -53,6 +53,7 @@ var checkBounds = setInterval(function(){
   switch (revealText) {
     case 1: 
       sprint.style.color = "black";
+      revealText += .2;
       break;
     case 2:
       carrot.style.color = "black";
@@ -134,7 +135,7 @@ window.addEventListener("keydown",
     }
     // boost
     if (pressed == 16) {
-      if (revealText >= 1 && revealText < 2) { revealText += .2; }
+      if (revealText > 1 && revealText < 2) { revealText += .2; }
       boost = 1;
     }
 },false);
