@@ -120,25 +120,23 @@ window.addEventListener("keydown",
     var pressed = e.keyCode;
     // up arrow
     if (pressed == 38 || pressed == 87 || pressed == 32) {
-      if (revealText < 1) { revealText += .1; }
+      if (revealText < 1) { revealText += .2; }
       rising = 1;
     }
     // left arrow
     if (pressed == 37 || pressed == 65) {
-      if (revealText < 1) { revealText += .1; }
+      if (revealText < 1) { revealText += .2; }
       movingLeft = 1;
     }
     // right arrow
     if (pressed == 39 || pressed == 68) {
-      if (revealText < 1) { revealText += .1; }
+      if (revealText < 1) { revealText += .2; }
       movingRight = 1;
     }
     // boost
-    if (pressed == 16) {
-      if (revealText > 1) {
-        if (revealText < 2) { revealText += .2; }
-        boost = 1;
-      }
+    if (pressed == 16 && revealText > 1) {
+      if (revealText < 2) { revealText += .2; }
+      boost = 1;
     }
 },false);
 
