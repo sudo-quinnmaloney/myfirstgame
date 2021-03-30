@@ -41,19 +41,19 @@ function respawnCoin() {
 }
 
 function checkLevel() {
-  if (score > 50) {
+  if (score == 30) {
     coinSpeed.style.setProperty("animation-duration","4s");
     winds.style.color = "black";
     return;
   }
-  if (score > 70) {
+  if (score == 50) {
     stomp.style.color = "black";
     return;
   }
-  if (score > 100) {
+  if (score == 100) {
     return;
   }
-  if (score > 120) {
+  if (score == 120) {
     return;
   }
 }
@@ -178,7 +178,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score > 70) {
+    if (pressed == 32 && score > 50) {
       stomping = 1;
     }
 },false);
