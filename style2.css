@@ -38,7 +38,7 @@
   height: 58px;
 }
 
-.idling {
+.moveSprite {
   animation: moveSpriteSheet .5s infinite linear;
 }
 
