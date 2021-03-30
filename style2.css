@@ -39,7 +39,7 @@
 }
 
 .moveSprite {
-  animation: moveSpriteSheet .5s infinite linear;
+  animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
 @keyframes moveSpriteSheet {
@@ -61,7 +61,7 @@
 }
 
 .slideAcross {
-  animation: sliding 5s steps(4) infinite;
+  animation: sliding 5s infinite linear;
 }
 
 @keyframes sliding {
