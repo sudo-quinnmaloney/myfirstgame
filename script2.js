@@ -3,7 +3,7 @@ var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("wi
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 
 var coin = document.getElementById("coin");
-var coinSpeed = document.getElementsByClassName("slideAcross");
+var coinSpeed = document.getElementsByClassName("slideAcross")[0];
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
 var blockHeight = parseInt(window.getComputedStyle(coin).getPropertyValue("height"));
 
