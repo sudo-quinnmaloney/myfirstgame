@@ -24,6 +24,7 @@ var staminaIncrement = 2;
 
 var mvmtSpeed = [0,0];
 var rising = 0;
+var stomping = 0;
 var boost = 0;
 var movingLeft = 0;
 var movingRight = 0;
@@ -103,6 +104,12 @@ var refreshGame = setInterval(function(){
       var effectiveBoost = boost;
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
+      
+      if (stomping) {
+        rising = 0;
+        movingLeft = 0;
+        movingRight = 0;
+      }
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= staminaIncrement; } 
@@ -123,6 +130,15 @@ var refreshGame = setInterval(function(){
           character.style.top = 0; 
           mvmtSpeed[1] = 0;
         }
+       } else if (stomping) {
+          mvmtSpeed[1] = -7;
+          if (posTop - mvmtSpeed[1] > base-charHeight) {
+            character.style.top = base-charHeight;
+            mvmtSpeed[1] = 0;
+            stomping = 0;
+          } else {
+            character.style.top = posTop - mvmtSpeed[1] + 'px';
+          }
        } else { 
         if (mvmtSpeed[1] > -6) {
           mvmtSpeed[1] -= 1;
@@ -159,12 +175,16 @@ window.addEventListener("keydown",
       if (revealText < 2 && revealText > 1) { revealText += .2; }
       boost = 1;
     }
+    // stomp
+    if (pressed == 32 && score > 70) {
+      stomping = 1;
+    }
 },false);
 
 window.addEventListener("keyup", 
   function(e){
     var unpressed = e.keyCode;
-    if (unpressed == 38 || unpressed == 32 || unpressed == 87) {
+    if (unpressed == 38 || unpressed == 87) {
       rising = 0;
     }
     if (unpressed == 37 || unpressed == 65) {
