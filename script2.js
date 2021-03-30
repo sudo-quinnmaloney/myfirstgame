@@ -50,9 +50,12 @@ function checkLevel() {
       break;
     case(10):
       wasd.style.color = "transparent";
+      sprint.style.color = "transparent";
+      carrtos.style.color = "transparent";
       break;
     case(35):
       winds.style.color = "transparent";
+      break;
     case(50):
       stomp.style.color = "black";
       break;
@@ -185,7 +188,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score > 10 && stamina >= 40) {
+    if (pressed == 32 && score > 50 && stamina >= 40) {
       stamina -= 40;
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
