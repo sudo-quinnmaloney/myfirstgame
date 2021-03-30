@@ -50,12 +50,12 @@ var checkBounds = setInterval(function(){
     gameWidth = newgameWidth;
     gameHeight = newgameHeight;
   }
-  switch (revealText) {
-    case 1.0: 
+  switch (Math.floor(revealText)) {
+    case 1: 
       sprint.style.color = "black";
       revealText += .2;
       break;
-    case 2.0:
+    case 2:
       carrot.style.color = "black";
       if (coin.classList.contains("slideAcross")){break;}
       coin.classList.add("slideAcross");
