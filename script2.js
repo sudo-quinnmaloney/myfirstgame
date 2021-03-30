@@ -17,6 +17,7 @@ var score = 0;
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
+var stomp = document.getElementById("stomp");
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
@@ -46,6 +47,7 @@ function checkLevel() {
     return;
   }
   if (score > 70) {
+    stomp.style.color = "black";
     return;
   }
   if (score > 100) {
