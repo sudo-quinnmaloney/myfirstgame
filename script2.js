@@ -61,8 +61,8 @@ function checkLevel() {
 function collide() {
   score++;
   scoreDisplay.innerHTML = score;
-  checkLevel();
   respawnCoin();
+  checkLevel();
 }
 
 var checkBounds = setInterval(function(){       
@@ -121,7 +121,7 @@ var refreshGame = setInterval(function(){
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= staminaIncrement; } 
-      else if (stamina < 100) { stamina += staminaIncrement/2; }
+      else if (stamina < 100) { stamina += staminaIncrement/4; }
       staminaBar.style.width = Math.floor(stamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
@@ -175,8 +175,10 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score > 50) {
+    if (pressed == 32 && score > 50 && stamina >= 50) {
+      stamina -= 50;
       stomping = 1;
+      staminaBar.style.width = Math.floor(stamina) + '%';
     }
 },false);
 
