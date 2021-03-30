@@ -135,8 +135,10 @@ window.addEventListener("keydown",
     }
     // boost
     if (pressed == 16) {
-      if (revealText > 1 && revealText < 2) { revealText += .2; }
-      boost = 1;
+      if (revealText > 1) {
+        if (revealText < 2) { revealText += .2; }
+        boost = 1;
+      }
     }
 },false);
 
