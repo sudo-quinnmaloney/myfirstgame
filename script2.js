@@ -41,12 +41,12 @@ function respawnCoin() {
 }
 
 function checkLevel() {
-  if (score == 30) {
+  if (score == 5) {
     winds.style.color = "black";
     coinSpeed.style.animationDuration = "3.5s";
     return;
   }
-  if (score == 50) {
+  if (score == 10) {
     stomp.style.color = "black";
     return;
   }
@@ -175,7 +175,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score > 50 && stamina >= 50) {
+    if (pressed == 32 && score > 10 && stamina >= 50) {
       stamina -= 50;
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
