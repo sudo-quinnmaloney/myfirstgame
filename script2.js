@@ -17,7 +17,7 @@ var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
 var stomp = document.getElementById("stomp");
-var wasd = document.getElecmentById("wasd");
+var wasd = document.getElementById("wasd");
 
 var staminaBar = document.getElementById("stamina");
 var stamina = 100;
