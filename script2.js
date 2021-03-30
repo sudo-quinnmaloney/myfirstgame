@@ -83,7 +83,7 @@ var refreshGame = setInterval(function(){
       } else { movingLeft = 0; movingRight = 0; }
       
       if (rising == 1){ 
-        if (mvmtSpeed[1] < 3) {
+        if (mvmtSpeed[1] < 3 + 1 * effectiveBoost) {
           mvmtSpeed[1] += 1;
         }
         if (posTop > mvmtSpeed[1]) {
