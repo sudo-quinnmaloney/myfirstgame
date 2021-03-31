@@ -14,7 +14,7 @@ var scoreDisplay = document.getElementById("collected");
 var score = 0;
 
 var explosion = document.getElementById("explosion");
-var explosionSprite = document.getElementById("explosion_spritesheet");
+var explosionSprite = document.getElementById("explosion_sprites");
 var explosionHeight = parseInt(window.getComputedStyle(explosion).getPropertyValue("height"));
 var explosionTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
 var explosionSpriteHeight = parseInt(window.getComputedStyle(explosionSprite).getPropertyValue("height"));
