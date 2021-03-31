@@ -170,7 +170,7 @@ var refreshGame = setInterval(function(){
           if (boost && exploding && stamina > 0) {
             exploding++;
             var growth = exploding * staminaIncrement;
-            stamina -= staminaIncrement/8;
+            stamina -= staminaIncrement/4;
             staminaBar.style.width = Math.floor(stamina) + '%';
             explosion.style.height = explosionHeight + growth * 2 + 'px';
             explosion.style.width = explosionWidth + growth * 2 + 'px';
@@ -178,7 +178,7 @@ var refreshGame = setInterval(function(){
             explosion.style.top = explosionTop - growth + 'px';
             explosion.style.left = posLeft - 25 - growth + 'px';
           } else if (exploding) {
-            //explosion.style.visibility = "hidden"; 
+            explosion.style.visibility = "hidden"; 
             explosion.style.height = explosionHeight + 'px';
             explosion.style.width = explosionWidth + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 'px';
