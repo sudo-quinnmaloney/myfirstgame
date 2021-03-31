@@ -175,7 +175,7 @@ var refreshGame = setInterval(function(){
             exploding++;
             var growth = exploding * staminaIncrement;
             stamina -= staminaIncrement/4;
-            staminaBar.style.width = Math.floor(stamina) + '%';
+            staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
             explosion.style.height = explosionHeight + growth * 2 + 'px';
             explosion.style.width = explosionWidth + growth * 2 + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * growth + 'px';
@@ -198,7 +198,7 @@ var refreshGame = setInterval(function(){
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
       else if (boost) { stamina -= staminaIncrement/4; } 
       else if (stamina < 100) { stamina += staminaIncrement/8; }
-      staminaBar.style.width = Math.floor(stamina/maxStamina) + '%';
+      staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
@@ -254,7 +254,7 @@ window.addEventListener("keydown",
     if (pressed == 32 && stamina >= 10 && !exploding) {
       stamina -= 10;                    
       stomping = 1;
-      staminaBar.style.width = Math.floor(stamina/maxStamina) + '%';
+      staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
     }
 },false);
 
