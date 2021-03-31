@@ -98,13 +98,3 @@
   0%{left:100%;}
   100%{left:-5%;}
 }
-
-.collapse {
-  animation: folding 2s linear;
-  animation-fill-mode: none;
-}
-
-@keyframes folding {
-  from {width:20px;}
-  to {width:0px;}
-}
