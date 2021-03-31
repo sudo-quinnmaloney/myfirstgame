@@ -19,7 +19,6 @@ var explosionHeight = parseInt(window.getComputedStyle(explosion).getPropertyVal
 var explosionTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
 var explosionWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
 var explosionSpriteHeight = parseInt(window.getComputedStyle(explosionSprite).getPropertyValue("height"));
-var explosionRatio = explosionWidth/explosionHeight;
 
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
@@ -163,13 +162,14 @@ var refreshGame = setInterval(function(){
           stomping = 0;
           if (boost && exploding && stamina > 0) {
             exploding++;
+            var growth = exploding * staminaIncrement;
             stamina -= staminaIncrement/16;
             staminaBar.style.width = Math.floor(stamina) + '%';
-            explosion.style.height = explosionHeight + exploding * staminaIncrement * 2 + 'px';
-            explosion.style.width = explosionWidth + exploding * staminaIncrement * 2 * explosionRatio + 'px';
-            explosionSprite.style.height = explosionSpriteHeight + 8 * exploding * staminaIncrement + 'px';
-            explosion.style.top = explosionTop - exploding * staminaIncrement + 'px';
-            explosion.style.left = posLeft - 39 - exploding * staminaIncrement * explosionRatio + 'px';
+            explosion.style.height = explosionHeight + growth * 2 + 'px';
+            explosion.style.width = explosionWidth + growth * 2 + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 2 * growth + 'px';
+            explosion.style.top = explosionTop - growth + 'px';
+            explosion.style.left = posLeft - 37 - growth + 'px';
           } else if (exploding) {
             //explosion.style.visibility = "hidden"; 
             explosion.style.height = explosionHeight + 'px';
