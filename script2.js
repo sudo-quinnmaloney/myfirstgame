@@ -32,6 +32,7 @@ var staminaBar = document.getElementById("stamina");
 var stamina = 100;
 var staminaIncrement = 2;
 
+var exploding = 0;
 var mvmtSpeed = [0,0];
 var rising = 0;
 var stomping = 0;
@@ -147,7 +148,7 @@ var refreshGame = setInterval(function(){
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
-      if (stomping || stall) {
+      if (stomping || stall || exploding) {
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight + 'px';
@@ -163,16 +164,19 @@ var refreshGame = setInterval(function(){
             explosion.style.height = explosionHeight + staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
             explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
+            exploding = 1;
           } else if (stall == 50) {
             stall = 0;
           } else { 
-            if (!stall) {
+            if (stall == 0 && exploding == 1) {
               explosion.style.display = "none"; 
               explosion.style.height = explosionHeight + 'px';
               explosionSprite.style.height = explosionSpriteHeight + 'px';
               explosion.style.top = explosionTop + 'px'; 
+              exploding == 0;
             }
             stall++;
+          }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
