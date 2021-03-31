@@ -96,6 +96,6 @@
 }
 
 @keyframes sliding {
-  0%{left:110%;}
+  0%{left:102%;}
   100%{left:-5%;}
 }
