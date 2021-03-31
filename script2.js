@@ -13,6 +13,12 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
 
+var explosion = document.getElementById("explosion");
+var explosionSprite = document.getElementById("explosion_spritesheet");
+var explosionHeight = parseInt(window.getComputedStyle(explosion).getPropertyValue("height"));
+var explosionTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+var explosionSpriteHeight = parseInt(window.getComputedStyle(explosionSprite).getPropertyValue("height"));
+
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
@@ -46,15 +52,15 @@ function respawnCoin() {
 
 function checkLevel() {
   switch(score) {
-    case(25):
-      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
-      winds.style.color = "black";
-      coinSpeed.style.animationDuration = "3.5s";
-      break;
     case(10):
       wasd.style.color = "transparent";
       sprint.style.color = "transparent";
       carrot.style.color = "transparent";
+      break;
+    case(25):
+      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
+      winds.style.color = "black";
+      coinSpeed.style.animationDuration = "3.5s";
       break;
     case(35):
       winds.style.color = "transparent";
@@ -146,10 +152,19 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
+          if (score > 15 && stomping && boost) {
+            explosion.style.left = posLeft - 39 + 'px';
+            explosion.style.display = 'initial';
+          }
           stomping = 0;
-          if (stall == 50) {
+          if (score > 15 && boost && stamina > 0) {
+            stamina -= staminaIncrement;
+            explosion.style.height = explosionHeight + staminaIncrement + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 3 * staminaIncrement + 'px';
+            explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
+          } else if (stall == 50) {
             stall = 0;
-          } else { stall++; }
+          } else { explosion.style.display = "none"; stall++; }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
@@ -212,8 +227,8 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score >= 50 && stamina >= 40) {
-      stamina -= 40;
+    if (pressed == 32 && score >= 10 && stamina >= 40 && !stall) {
+      stamina -= 40;                    
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
     }
