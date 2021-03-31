@@ -150,17 +150,17 @@ var refreshGame = setInterval(function(){
       if (stomping || stall) {
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-charHeight) {
-          character.style.top = base-charHeight;
+          character.style.top = base-charHeight + 'px';
           mvmtSpeed[1] = 0;
-          if (score > 15 && stomping && boost) {
+          if (score >= 15 && stomping && boost) {
             explosion.style.left = posLeft - 39 + 'px';
             explosion.style.display = 'initial';
           }
           stomping = 0;
-          if (score > 15 && boost && stamina > 0) {
+          if (score > 15 && boost && stamina) {
             stamina -= staminaIncrement;
             explosion.style.height = explosionHeight + staminaIncrement + 'px';
-            explosionSprite.style.height = explosionSpriteHeight + 3 * staminaIncrement + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
             explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
           } else if (stall == 50) {
             stall = 0;
@@ -227,7 +227,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score >= 10 && stamina >= 40 && !stall) {
+    if (pressed == 32 && score >= 10 && stamina >= 40 && stall == 0) {
       stamina -= 40;                    
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
