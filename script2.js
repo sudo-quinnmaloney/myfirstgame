@@ -152,13 +152,14 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight + 'px';
           mvmtSpeed[1] = 0;
-          if (score >= 15 && stomping && boost) {
+          if (stomping && boost) {
             explosion.style.left = posLeft - 39 + 'px';
             explosion.style.display = 'initial';
           }
           stomping = 0;
           if (boost && stamina) {
             stamina -= staminaIncrement;
+            staminaBar.style.width = Math.floor(stamina) + '%';
             explosion.style.height = explosionHeight + staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
             explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
@@ -227,8 +228,8 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && stamina >= 40 && stall == 0) {
-      stamina -= 40;                    
+    if (pressed == 32 && stamina >= 10 && stall == 0) {
+      stamina -= 10;                    
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
     }
