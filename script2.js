@@ -165,7 +165,14 @@ var refreshGame = setInterval(function(){
             explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
           } else if (stall == 50) {
             stall = 0;
-          } else { explosion.style.display = "none"; stall++; }
+          } else { 
+            if (!stall) {
+              explosion.style.display = "none"; 
+              explosion.style.height = explosionHeight + 'px';
+              explosionSprite.style.height = explosionSpriteHeight + 'px';
+              explosion.style.top = explosionTop + 'px'; 
+            }
+            stall++;
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
