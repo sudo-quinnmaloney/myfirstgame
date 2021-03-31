@@ -11,7 +11,7 @@
 }
 
 #caption {
-  margin: auto;
+  left: 25%;
   width: 50%;
   postion: fixed;
 }
@@ -21,7 +21,7 @@
 #statusBar {
   width: 10%;
   height: 10%;
-  margin: auto;
+  left: 45%;
   border:2px solid black;
   position: fixed;
 }
