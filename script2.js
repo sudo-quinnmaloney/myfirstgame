@@ -28,6 +28,7 @@ var winds3 = document.getElementById("winds3");
 var stomp = document.getElementById("stomp");
 var boostedStomp = document.getElementById("boostedStomp");
 var wasd = document.getElementById("wasd");
+var staminaBoost = document.getElementById("staminaBoost");
 
 var staminaBar = document.getElementById("stamina");
 var maxStamina = 100;
@@ -63,7 +64,7 @@ function checkLevel() {
     case(25):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds.style.color = "black";
-      coinSpeed.style.animationDuration = "3.5s";
+      coinSpeed.style.animationDuration = "7s";
       break;
     case(35):
       winds.style.color = "transparent";
@@ -77,7 +78,7 @@ function checkLevel() {
     case(75):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds2.style.color = "black";
-      coinSpeed.style.animationDuration = "2.5s";
+      coinSpeed.style.animationDuration = "5s";
       break;
     case(82):
       winds2.style.color = "transparent";
@@ -96,6 +97,10 @@ function checkLevel() {
       break;
     case(125):
       maxStamina = 125;
+      staminaBoost.style.color = "black";
+      break;
+    case(135):
+      staminaBoost.style.color = "transparent";
       break;
     default:
       break;
