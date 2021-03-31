@@ -73,7 +73,7 @@
 }
 #explosion_sprites {
   height: 100px;
-  opacity: 0.7;
+  opacity: 0.8;
   animation: moveSpriteSheet .5s steps(3) infinite;
 }
 
@@ -83,7 +83,7 @@
   position: relative;
   top: 418px;
   left: 100%;
-  overlap: hidden;
+  overflow: hidden;
 }
 
 #carrot_sprite {
