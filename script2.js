@@ -159,18 +159,19 @@ var refreshGame = setInterval(function(){
             explosion.style.display = 'initial';
           }
           stomping = 0;
-          if (exploding && stamina) {
-            stamina -= staminaIncrement/4;
+          if (boost && exploding && stamina) {
+            exploding++;
+            stamina -= staminaIncrement/8;
             staminaBar.style.width = Math.floor(stamina) + '%';
-            explosion.style.height = explosionHeight + staminaIncrement + 'px';
-            explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
-            explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
-          } else if (stamina == 0 && exploding == 1) {
+            explosion.style.height = explosionHeight + exploding * staminaIncrement + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 4 * exploding * staminaIncrement + 'px';
+            explosion.style.top = explosionTop - exploding * Math.floor(staminaIncrement/2) + 'px';
+          } else if (exploding) {
             explosion.style.display = "none"; 
             explosion.style.height = explosionHeight + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 'px';
             explosion.style.top = explosionTop + 'px'; 
-            exploding == 0;
+            exploding = 0;
           }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
