@@ -12,7 +12,7 @@
 
 #caption {
   left: 25%;
-  top:20%;
+  top:25%;
   width: 50%;
   postion: fixed;
 }
@@ -21,8 +21,8 @@
 }
 #statusBar {
   width: 10%;
-  top: 10%;
   height: 10%;
+  top: 10%
   left: 45%;
   border:2px solid black;
   position: fixed;
@@ -65,7 +65,7 @@
 #explosion{
   width: 99px;
   height: 96px;
-  position: relative;
+  position: fixed;
   top:392px;
   border: 1px solid black;
   overflow: hidden;
