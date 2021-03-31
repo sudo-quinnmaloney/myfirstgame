@@ -156,8 +156,7 @@ var refreshGame = setInterval(function(){
           if (stomping && boost && !exploding) {
             exploding = 1;
             explosion.style.left = posLeft - 39 + 'px';
-            explosion.style.display = 'initial';
-            explosion.style.overflow = 'hidden';
+            explosion.style.visibility = 'visible';
           }
           stomping = 0;
           if (boost && exploding && stamina) {
@@ -167,9 +166,9 @@ var refreshGame = setInterval(function(){
             explosion.style.height = explosionHeight + exploding * staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * exploding * staminaIncrement + 'px';
             explosion.style.top = explosionTop - Math.floor(exploding * staminaIncrement/2) + 'px';
-            explosion.style.left = posLeft - 39 - exploding * staminaIncrement * 3;
+            explosion.style.left = posLeft - 39 - exploding * staminaIncrement * 3 + 'px';
           } else if (exploding) {
-            explosion.style.display = "none"; 
+            explosion.style.visibility = "hidden"; 
             explosion.style.height = explosionHeight + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 'px';
             explosion.style.top = explosionTop + 'px'; 
