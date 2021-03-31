@@ -12,7 +12,7 @@
 }
 
 #caption {
-  align: center;
+  padding-left:25%;
   padding-top:5%;
   width: 50%;
   postion: fixed;
@@ -68,7 +68,7 @@
   width: 99px;
   height: 96px;
   position: fixed;
-  top:392px;
+  top:440px;
   border: 1px solid black;
   overflow: hidden;
 }
