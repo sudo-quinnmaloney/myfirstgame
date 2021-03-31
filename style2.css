@@ -13,6 +13,7 @@
 #caption {
   margin: auto;
   width: 50%;
+  postion: fixed;
 }
 #carrots, #sprint, #winds, #stomp, #winds2, #boostedStomp, #winds3 {
   color: transparent;
@@ -22,6 +23,7 @@
   height: 10%;
   margin: auto;
   border:2px solid black;
+  position: fixed;
 }
 
 #score {
