@@ -94,7 +94,7 @@ function checkLevel() {
     case(115):
       winds3.style.color = "transparent";
       break;
-    case(2):
+    case(125):
       maxStamina = 125;
       break;
     default:
@@ -165,7 +165,7 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight + 'px';
           mvmtSpeed[1] = 0;
-          if (stomping && boost && !exploding) {
+          if (score >= 90 && stomping && boost && !exploding) {
             exploding = 1;
             explosion.style.left = posLeft - 25 + 'px';
             explosion.style.visibility = 'visible';
@@ -251,7 +251,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && stamina >= 10 && !exploding) {
+    if (score >= 50 && pressed == 32 && stamina >= 10 && !exploding) {
       stamina -= 10;                    
       stomping = 1;
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
