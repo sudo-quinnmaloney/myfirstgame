@@ -17,7 +17,9 @@ var explosion = document.getElementById("explosion");
 var explosionSprite = document.getElementById("explosion_sprites");
 var explosionHeight = parseInt(window.getComputedStyle(explosion).getPropertyValue("height"));
 var explosionTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+var explosionWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
 var explosionSpriteHeight = parseInt(window.getComputedStyle(explosionSprite).getPropertyValue("height"));
+var explosionRatio = explosionWidth/explosionHeight;
 
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
@@ -163,13 +165,15 @@ var refreshGame = setInterval(function(){
             exploding++;
             stamina -= staminaIncrement/16;
             staminaBar.style.width = Math.floor(stamina) + '%';
-            explosion.style.height = explosionHeight + exploding * staminaIncrement + 'px';
-            explosionSprite.style.height = explosionSpriteHeight + 4 * exploding * staminaIncrement + 'px';
-            explosion.style.top = explosionTop - Math.floor(exploding * staminaIncrement/2) + 'px';
-            explosion.style.left = posLeft - 39 - exploding * staminaIncrement * 3 + 'px';
+            explosion.style.height = explosionHeight + exploding * staminaIncrement * 2 + 'px';
+            explosion.style.width = explosionWidth + exploding * staminaIncrement * 2 * explosionRatio + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 8 * exploding * staminaIncrement + 'px';
+            explosion.style.top = explosionTop - exploding * staminaIncrement + 'px';
+            explosion.style.left = posLeft - 39 - exploding * staminaIncrement * explosionRatio + 'px';
           } else if (exploding) {
-            explosion.style.visibility = "hidden"; 
+            //explosion.style.visibility = "hidden"; 
             explosion.style.height = explosionHeight + 'px';
+            explosion.style.width = explosionWidth + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 'px';
             explosion.style.top = explosionTop + 'px'; 
             exploding = 0;
