@@ -62,12 +62,11 @@
   width: 99px;
   height: 96px;
   position: relative;
-  left: 10% - 39px;
   top:392px;
   border: 1px solid black;
 }
 #explosion_spritesheet{
-  animation: moveSpriteSheet .5s steps(4) forward;
+  animation: moveSpriteSheet .5s steps(3) infinite;
 }
 
 #coin {
