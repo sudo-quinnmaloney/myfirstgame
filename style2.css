@@ -65,8 +65,8 @@
 }
 
 #explosion{
-  width: 99px;
-  height: 96px;
+  width: 75px;
+  height: 75px;
   position: fixed;
   top:440px;
   border: 1px solid black;
