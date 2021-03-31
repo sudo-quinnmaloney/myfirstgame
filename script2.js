@@ -169,7 +169,7 @@ var refreshGame = setInterval(function(){
             explosion.style.width = explosionWidth + growth * 2 + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 2 * growth + 'px';
             explosion.style.top = explosionTop - growth + 'px';
-            explosion.style.left = posLeft - 37 - growth + 'px';
+            explosion.style.left = posLeft - 25 - growth + 'px';
           } else if (exploding) {
             //explosion.style.visibility = "hidden"; 
             explosion.style.height = explosionHeight + 'px';
