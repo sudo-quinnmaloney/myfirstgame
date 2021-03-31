@@ -70,6 +70,7 @@
   position: fixed;
   top:440px;
   overflow: hidden;
+  visibility: hidden;
 }
 #explosion_sprites {
   height: 100px;
