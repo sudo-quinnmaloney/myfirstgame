@@ -8,21 +8,23 @@
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  overflow: hidden;
 }
 
 #caption {
-  left: 25%;
-  top:25%;
+  align: center;
+  padding-top:5%;
   width: 50%;
   postion: fixed;
 }
 #carrots, #sprint, #winds, #stomp, #winds2, #boostedStomp, #winds3 {
   color: transparent;
 }
+
 #statusBar {
   width: 10%;
   height: 10%;
-  top: 10%
+  top: 10%;
   left: 45%;
   border:2px solid black;
   position: fixed;
