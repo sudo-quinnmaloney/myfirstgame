@@ -148,34 +148,29 @@ var refreshGame = setInterval(function(){
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
-      if (stomping || stall || exploding) {
+      if (stomping || exploding) {
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight + 'px';
           mvmtSpeed[1] = 0;
-          if (stomping && boost) {
+          if (stomping && boost && !exploding) {
+            exploding = 1;
             explosion.style.left = posLeft - 39 + 'px';
             explosion.style.display = 'initial';
           }
           stomping = 0;
-          if (boost && stamina) {
-            stamina -= staminaIncrement;
+          if (exploding && stamina) {
+            stamina -= staminaIncrement/4;
             staminaBar.style.width = Math.floor(stamina) + '%';
             explosion.style.height = explosionHeight + staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
             explosion.style.top = explosionTop - Math.floor(staminaIncrement/2) + 'px';
-            exploding = 1;
-          } else if (stall == 50) {
-            stall = 0;
-          } else { 
-            if (stall == 0 && exploding == 1) {
-              explosion.style.display = "none"; 
-              explosion.style.height = explosionHeight + 'px';
-              explosionSprite.style.height = explosionSpriteHeight + 'px';
-              explosion.style.top = explosionTop + 'px'; 
-              exploding == 0;
-            }
-            stall++;
+          } else if (stamina == 0 && exploding == 1) {
+            explosion.style.display = "none"; 
+            explosion.style.height = explosionHeight + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 'px';
+            explosion.style.top = explosionTop + 'px'; 
+            exploding == 0;
           }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
