@@ -157,7 +157,7 @@ var refreshGame = setInterval(function(){
             explosion.style.display = 'initial';
           }
           stomping = 0;
-          if (score > 15 && boost && stamina) {
+          if (boost && stamina) {
             stamina -= staminaIncrement;
             explosion.style.height = explosionHeight + staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * staminaIncrement + 'px';
@@ -227,7 +227,7 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score >= 10 && stamina >= 40 && stall == 0) {
+    if (pressed == 32 && stamina >= 40 && stall == 0) {
       stamina -= 40;                    
       stomping = 1;
       staminaBar.style.width = Math.floor(stamina) + '%';
