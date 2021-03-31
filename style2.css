@@ -52,7 +52,6 @@
 
 #character_spritesheet {
   height: 58px;
-  opacity: 0.6;
   animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
@@ -66,14 +65,15 @@
 }
 
 #explosion{
-  width: 75px;
-  height: 75px;
+  width: 113px;
+  height: 113px;
   position: fixed;
   top:440px;
   border: 1px solid black;
   overflow: hidden;
 }
 #explosion_sprites {
+  opacity: 0.7;
   animation: moveSpriteSheet .5s steps(3) infinite;
 }
 
