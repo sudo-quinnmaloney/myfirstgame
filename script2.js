@@ -141,10 +141,11 @@ var refreshGame = setInterval(function(){
       if (exploding) {
         var expLeft = parseInt(window.getComputedStyle(explosion).getPropertyValue("left"));
         var expTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+        var expWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
       }
   
       if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) 
-          || (exploding && (expLeft < blockLeft && blockLeft < expLeft + explosionWidth && expTop < blockTop + blockHeight))){
+          || (exploding && (expLeft < blockLeft && blockLeft < expLeft + expWidth && expTop < blockTop + blockHeight))){
         collide();
       }
   
