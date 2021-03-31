@@ -217,7 +217,7 @@ window.addEventListener("keydown",
   function(e){
     var pressed = e.keyCode;
     // up arrow
-    if (pressed == 38 || pressed == 87 || pressed == 32) {
+    if (pressed == 38 || pressed == 87) {
       if (revealText < 1) { revealText += .2; }
       rising = 1;
     }
