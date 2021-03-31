@@ -165,8 +165,8 @@ var refreshGame = setInterval(function(){
             staminaBar.style.width = Math.floor(stamina) + '%';
             explosion.style.height = explosionHeight + exploding * staminaIncrement + 'px';
             explosionSprite.style.height = explosionSpriteHeight + 4 * exploding * staminaIncrement + 'px';
-            explosion.style.top = explosionTop - exploding * Math.floor(staminaIncrement/2) + 'px';
-            explosion.style.left = posLeft - 39 - Math.floor(exploding * 3/2);
+            explosion.style.top = explosionTop - Math.floor(exploding * staminaIncrement/2) + 'px';
+            explosion.style.left = posLeft - 39 - Math.floor(exploding * staminaIncrement * 3/2);
           } else if (exploding) {
             explosion.style.display = "none"; 
             explosion.style.height = explosionHeight + 'px';
