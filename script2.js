@@ -64,7 +64,7 @@ function checkLevel() {
     case(25):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds.style.color = "black";
-      coinSpeed.style.animationDuration = "7s";
+      coinSpeed.style.animationDuration = "3.5s";
       break;
     case(35):
       winds.style.color = "transparent";
@@ -78,7 +78,7 @@ function checkLevel() {
     case(75):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds2.style.color = "black";
-      coinSpeed.style.animationDuration = "5s";
+      coinSpeed.style.animationDuration = "2.5s";
       break;
     case(82):
       winds2.style.color = "transparent";
