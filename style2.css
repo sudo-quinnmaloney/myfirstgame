@@ -64,8 +64,9 @@
   position: relative;
   top:392px;
   border: 1px solid black;
+  overflow: hidden;
 }
-#explosion_sprites
+#explosion_sprites {
   animation: moveSpriteSheet .5s steps(3) infinite;
 }
 
