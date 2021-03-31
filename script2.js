@@ -61,12 +61,12 @@ function checkLevel() {
       sprint.style.color = "transparent";
       carrot.style.color = "transparent";
       break;
-    case(25):
+    case(20):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds.style.color = "black";
-      coinSpeed.style.animationDuration = "3.5s";
+      coinSpeed.style.animationDuration = "3.25s";
       break;
-    case(35):
+    case(30):
       winds.style.color = "transparent";
       break;
     case(50):
