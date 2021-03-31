@@ -137,8 +137,14 @@ var refreshGame = setInterval(function(){
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
       var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
+      
+      if (exploding) {
+        var expLeft = parseInt(window.getComputedStyle(explosion).getPropertyValue("left"));
+        var expTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+      }
   
-      if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
+      if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) 
+          || (exploding && (expLeft < blockLeft && blockLeft < expLeft + explosionWidth && expTop < blockTop + blockHeight))){
         collide();
       }
   
@@ -163,7 +169,7 @@ var refreshGame = setInterval(function(){
           if (boost && exploding && stamina > 0) {
             exploding++;
             var growth = exploding * staminaIncrement;
-            stamina -= staminaIncrement/16;
+            stamina -= staminaIncrement/8;
             staminaBar.style.width = Math.floor(stamina) + '%';
             explosion.style.height = explosionHeight + growth * 2 + 'px';
             explosion.style.width = explosionWidth + growth * 2 + 'px';
@@ -185,8 +191,8 @@ var refreshGame = setInterval(function(){
        } 
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
-      else if (boost) { stamina -= staminaIncrement; } 
-      else if (stamina < 100) { stamina += staminaIncrement/4; }
+      else if (boost) { stamina -= staminaIncrement/4; } 
+      else if (stamina < 100) { stamina += staminaIncrement/8; }
       staminaBar.style.width = Math.floor(stamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
