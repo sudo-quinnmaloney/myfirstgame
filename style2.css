@@ -59,6 +59,18 @@
   }
 }
 
+#explosion{
+  width: 99px;
+  height: 96px;
+  position: relative;
+  left: 10% - 39px;
+  top:488px;
+  border: 1px solid black;
+}
+#explosion_spritesheet{
+  animation: moveSpriteSheet .5s steps(4) forward;
+}
+
 #coin {
   width: 20px;
   height: 20px;
