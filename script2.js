@@ -1,9 +1,9 @@
-var character = document.getElementById("character");
+var character = document.getElementById("character_avatar");
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
-var avatar = document.getElementById("character_avatar");
-var avatarWidth = parseInt(window.getComputedStyle(avatar).getPropertyValue("width"));
-var avatarHeight = parseInt(window.getComputedStyle(avatar).getPropertyValue("height"));
+var hitbox = document.getElementById("character_hitbox");
+var hitboxWidth = parseInt(window.getComputedStyle(avatar).getPropertyValue("width"));
+var hitboxHeight = parseInt(window.getComputedStyle(avatar).getPropertyValue("height"));
 
 var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
@@ -124,9 +124,6 @@ var checkBounds = setInterval(function(){
   if (newgameWidth != gameWidth || newgameHeight != gameHeight) {
     character.style.left = 10 +'%';
     character.style.top = gameHeight - charHeight - 1 + 'px';
-    var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-    avatar.style.left = posLeft - Math.floor(avatarWidth - charWidth)/2) + 'px';
-    avatar.style.top = gameHeight - avatarHeight + 'px';
     gameWidth = newgameWidth;
     gameHeight = newgameHeight;
   }
@@ -175,7 +172,6 @@ var refreshGame = setInterval(function(){
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight + 'px';
-          avatar.style.top = gameHeight - avatarHeight + 'px';
           
           mvmtSpeed[1] = 0;
           if (score >= 90 && stomping && boost && !exploding) {
@@ -215,7 +211,6 @@ var refreshGame = setInterval(function(){
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
-        avatar.style.left = posLeft - Math.floor(avatarWidth - charWidth)/2) - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
       
       if (rising == 1){ 
@@ -224,10 +219,8 @@ var refreshGame = setInterval(function(){
         }
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
-          avatar.style.top = posTop - (avatarHeight - charHeight) - mvmtSpeed[1] + 'px';
         } else {
-          character.style.top = 0; 
-          avatar.style.top = -(avatarHeight - charheight) + 'px';
+          character.style.top = -(charHeight - hitboxHeight); 
           mvmtSpeed[1] = 0;
         }
        } else { 
@@ -236,11 +229,9 @@ var refreshGame = setInterval(function(){
         }
         if (posTop - mvmtSpeed[1] > base-charHeight) {
           character.style.top = base-charHeight;
-          avatar.style.top = base-avatarHeight + 'px';
           mvmtSpeed[1] = 0;
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';   
-          avatar.style.top = posTop - (avatarHeight - charHeight) - mvmtSpeed[1] + 'px';
         }
        }
 },10);
