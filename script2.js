@@ -50,7 +50,7 @@ var stall = 0;
 
 function respawnCoin() {
   var newTop = Math.floor(Math.random() * (gameHeight - blockHeight));
-  coin.style.top = newTop - 63 + 'px';
+  coin.style.top = newTop - 103 + 'px';
   
   coin.classList.remove("slideAcross");
   void coin.offsetWidth;
