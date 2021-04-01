@@ -1,6 +1,10 @@
-var character = document.getElementById("character");
+var character = document.getElementById("character_avatar");
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
+var hitbox = document.getElementById("character_hitbox");
+var hitboxWidth = parseInt(window.getComputedStyle(hitbox).getPropertyValue("width"));
+var hitboxHeight = parseInt(window.getComputedStyle(hitbox).getPropertyValue("height"));
+var charSprites = document.getElementById("character_spritesheet");
 
 var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
@@ -47,7 +51,7 @@ var stall = 0;
 
 function respawnCoin() {
   var newTop = Math.floor(Math.random() * (gameHeight - blockHeight));
-  coin.style.top = newTop - 63 + 'px';
+  coin.style.top = newTop - 103 + 'px';
   
   coin.classList.remove("slideAcross");
   void coin.offsetWidth;
@@ -141,11 +145,11 @@ var checkBounds = setInterval(function(){
 }, 3000);
 
 var refreshGame = setInterval(function(){
-      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left"));
-      var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left")) + (charWidth - hitboxWidth)/2;
+      var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")) + (charHeight - hitboxHeight);
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
-      var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
+      var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 103;
       
       if (exploding) {
         var expLeft = parseInt(window.getComputedStyle(explosion).getPropertyValue("left"));
@@ -153,7 +157,7 @@ var refreshGame = setInterval(function(){
         var expWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
       }
   
-      if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) 
+      if ((posLeft < blockWidth + blockLeft && blockLeft < hitboxWidth + posLeft && posTop < blockHeight + blockTop && posTop + hitboxHeight > blockTop) 
           || (exploding && (expLeft < blockLeft && blockLeft < expLeft + expWidth && expTop < blockTop + blockHeight))){
         collide();
       }
@@ -166,9 +170,15 @@ var refreshGame = setInterval(function(){
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
       if (stomping || exploding) {
+        if (stomping) {
+          charSprites.style.top = -600 + 'px';
+        } else if (exploding){
+          charSprites.style.top = -500 + 'px';
+        }
         mvmtSpeed[1] = -16;
-        if (posTop - mvmtSpeed[1] > base-charHeight) {
+        if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight + 'px';
+          
           mvmtSpeed[1] = 0;
           if (score >= 90 && stomping && boost && !exploding) {
             exploding = 1;
@@ -195,7 +205,7 @@ var refreshGame = setInterval(function(){
             exploding = 0;
           }
         } else {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          character.style.top = posTop -(charHeight-hitboxHeight)- mvmtSpeed[1] + 'px';
         }
         return;
        } 
@@ -205,29 +215,43 @@ var refreshGame = setInterval(function(){
       else if (stamina < maxStamina) { stamina += staminaIncrement/8; }
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
-      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
-        character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
-      } else { movingLeft = 0; movingRight = 0; }
+      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
+        if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] > 0) {
+          charSprites.style.top = -100 + 'px';
+        } else if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] < 0) {
+          charSprites.style.top = -200 + 'px';
+        } else if (gameHeight <= posTop + hitboxHeight) {
+          charSprites.style.top = 0;
+        }
+        character.style.left = posLeft - (charWidth-hitboxWidth)/2 - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
+      } else { movingLeft = 0; movingRight = 0; charSprites.style.top = 0;}
       
       if (rising == 1){ 
         if (mvmtSpeed[1] < 3 + 2 * effectiveBoost) {
           mvmtSpeed[1] += 1;
         }
         if (posTop > mvmtSpeed[1]) {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';
+          if (effectiveBoost) {
+            charSprites.style.top = -400 + 'px';
+          } else {
+            charSprites.style.top = -300 + 'px';
+          }
         } else {
-          character.style.top = 0; 
+          character.style.top = -(charHeight - hitboxHeight); 
           mvmtSpeed[1] = 0;
+          charSprites.style.top = -300 + 'px';
         }
        } else { 
         if (mvmtSpeed[1] > -6) {
           mvmtSpeed[1] -= 1;
         }
-        if (posTop - mvmtSpeed[1] > base-charHeight) {
+        if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
         } else {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';  
+          charSprites.style.top = -300 + 'px';
         }
        }
 },10);

@@ -41,18 +41,27 @@
   background-color: #66ccff;
 }
 
-#character {
+#character_hitbox {
   width: 20px;
   height: 60px;
+  position: absolute;
+  left: 40px;
+  top: 39px;
+}
+#character_avatar {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
   position: relative;
   border: 1px solid black;
   left: 10%;
-  top: 440px;
-  overflow: hidden;
+  top: 400px;
 }
 
 #character_spritesheet {
-  height: 58px;
+  height: 700px;
+  top: 0px;
+  position: absolute;
   animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
@@ -83,7 +92,7 @@
   width: 20px;
   height: 20px;
   position: relative;
-  top: 418px;
+  top: 378px;
   left: 100%;
   overflow: hidden;
 }
