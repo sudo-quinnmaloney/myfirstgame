@@ -60,6 +60,7 @@
 
 #character_spritesheet {
   height: 700px;
+  position: absolute;
   animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
