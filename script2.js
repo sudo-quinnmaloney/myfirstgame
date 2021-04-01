@@ -144,7 +144,7 @@ var checkBounds = setInterval(function(){
 }, 3000);
 
 var refreshGame = setInterval(function(){
-      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left")) + Math.floor(charWidth - hitboxWidth)/2);
+      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left")) + Math.floor((charWidth - hitboxWidth)/2);
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")) + (charHeight - hitboxHeight);
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
