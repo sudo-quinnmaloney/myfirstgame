@@ -148,7 +148,7 @@ var refreshGame = setInterval(function(){
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")) + (charHeight - hitboxHeight);
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
-      var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
+      var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 103;
       
       if (exploding) {
         var expLeft = parseInt(window.getComputedStyle(explosion).getPropertyValue("left"));
@@ -218,7 +218,7 @@ var refreshGame = setInterval(function(){
           mvmtSpeed[1] += 1;
         }
         if (posTop > mvmtSpeed[1]) {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';
         } else {
           character.style.top = -(charHeight - hitboxHeight); 
           mvmtSpeed[1] = 0;
@@ -231,7 +231,7 @@ var refreshGame = setInterval(function(){
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
         } else {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';   
+          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';   
         }
        }
 },10);
