@@ -13,6 +13,13 @@ var gameHeight = parseInt(window.getComputedStyle(game).getPropertyValue("height
 var scoreDisplay = document.getElementById("collected");
 var score = 0;
 
+var explosion = document.getElementById("explosion");
+var explosionSprite = document.getElementById("explosion_sprites");
+var explosionHeight = parseInt(window.getComputedStyle(explosion).getPropertyValue("height"));
+var explosionTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+var explosionWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
+var explosionSpriteHeight = parseInt(window.getComputedStyle(explosionSprite).getPropertyValue("height"));
+
 var carrot = document.getElementById("carrots");
 var sprint = document.getElementById("sprint");
 var winds = document.getElementById("winds");
@@ -21,11 +28,14 @@ var winds3 = document.getElementById("winds3");
 var stomp = document.getElementById("stomp");
 var boostedStomp = document.getElementById("boostedStomp");
 var wasd = document.getElementById("wasd");
+var staminaBoost = document.getElementById("staminaBoost");
 
 var staminaBar = document.getElementById("stamina");
-var stamina = 100;
+var maxStamina = 100;
+var stamina = maxStamina;
 var staminaIncrement = 2;
 
+var exploding = 0;
 var mvmtSpeed = [0,0];
 var rising = 0;
 var stomping = 0;
@@ -46,17 +56,17 @@ function respawnCoin() {
 
 function checkLevel() {
   switch(score) {
-    case(25):
-      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
-      winds.style.color = "black";
-      coinSpeed.style.animationDuration = "3.5s";
-      break;
     case(10):
       wasd.style.color = "transparent";
       sprint.style.color = "transparent";
       carrot.style.color = "transparent";
       break;
-    case(35):
+    case(20):
+      var coinSpeed = document.getElementsByClassName("slideAcross")[0];
+      winds.style.color = "black";
+      coinSpeed.style.animationDuration = "3.25s";
+      break;
+    case(30):
       winds.style.color = "transparent";
       break;
     case(50):
@@ -68,7 +78,7 @@ function checkLevel() {
     case(75):
       var coinSpeed = document.getElementsByClassName("slideAcross")[0];
       winds2.style.color = "black";
-      coinSpeed.style.animationDuration = "3s";
+      coinSpeed.style.animationDuration = "2.5s";
       break;
     case(82):
       winds2.style.color = "transparent";
@@ -84,6 +94,13 @@ function checkLevel() {
       break;
     case(115):
       winds3.style.color = "transparent";
+      break;
+    case(125):
+      maxStamina = 125;
+      staminaBoost.style.color = "black";
+      break;
+    case(135):
+      staminaBoost.style.color = "transparent";
       break;
     default:
       break;
@@ -129,8 +146,15 @@ var refreshGame = setInterval(function(){
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
       var blockTop = parseInt(window.getComputedStyle(coin).getPropertyValue("top")) + 63;
+      
+      if (exploding) {
+        var expLeft = parseInt(window.getComputedStyle(explosion).getPropertyValue("left"));
+        var expTop = parseInt(window.getComputedStyle(explosion).getPropertyValue("top"));
+        var expWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
+      }
   
-      if (posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) {
+      if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) 
+          || (exploding && (expLeft < blockLeft && blockLeft < expLeft + expWidth && expTop < blockTop + blockHeight))){
         collide();
       }
   
@@ -141,15 +165,35 @@ var refreshGame = setInterval(function(){
   
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
-      if (stomping || stall) {
+      if (stomping || exploding) {
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-charHeight) {
-          character.style.top = base-charHeight;
+          character.style.top = base-charHeight + 'px';
           mvmtSpeed[1] = 0;
+          if (score >= 90 && stomping && boost && !exploding) {
+            exploding = 1;
+            explosion.style.left = posLeft - 25 + 'px';
+            explosion.style.visibility = 'visible';
+          }
           stomping = 0;
-          if (stall == 50) {
-            stall = 0;
-          } else { stall++; }
+          if (boost && exploding && stamina > 0) {
+            exploding++;
+            var growth = exploding * staminaIncrement;
+            stamina -= staminaIncrement/4;
+            staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
+            explosion.style.height = explosionHeight + growth + 'px';
+            explosion.style.width = explosionWidth + growth * 2 + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 4 * growth + 'px';
+            explosion.style.top = explosionTop - growth + 'px';
+            explosion.style.left = posLeft - 25 - growth + 'px';
+          } else if (exploding) {
+            explosion.style.visibility = "hidden"; 
+            explosion.style.height = explosionHeight + 'px';
+            explosion.style.width = explosionWidth + 'px';
+            explosionSprite.style.height = explosionSpriteHeight + 'px';
+            explosion.style.top = explosionTop + 'px'; 
+            exploding = 0;
+          }
         } else {
           character.style.top = posTop - mvmtSpeed[1] + 'px';
         }
@@ -157,9 +201,9 @@ var refreshGame = setInterval(function(){
        } 
   
       if (boost && stamina <= 0) { effectiveBoost = 0; } 
-      else if (boost) { stamina -= staminaIncrement; } 
-      else if (stamina < 100) { stamina += staminaIncrement/4; }
-      staminaBar.style.width = Math.floor(stamina) + '%';
+      else if (boost) { stamina -= staminaIncrement/2; } 
+      else if (stamina < maxStamina) { stamina += staminaIncrement/8; }
+      staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
@@ -212,10 +256,10 @@ window.addEventListener("keydown",
       boost = 1;
     }
     // stomp
-    if (pressed == 32 && score >= 50 && stamina >= 40) {
-      stamina -= 40;
+    if (score >= 50 && pressed == 32 && stamina >= 10 && !exploding) {
+      stamina -= 10;                    
       stomping = 1;
-      staminaBar.style.width = Math.floor(stamina) + '%';
+      staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
     }
 },false);
 

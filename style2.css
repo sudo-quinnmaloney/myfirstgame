@@ -4,25 +4,30 @@
   width:100%;
   height:501px;
   border:1px solid black;
-  overflow: hidden;
   background-image: url("https://imgix.gizmodo.com.au/content/uploads/sites/2/2018/06/22/dqn7zk3bx5lzy1kje2jo.gif?ar=16%3A9&auto=format&fit=crop&q=65&w=720&nrs=40&fm=gif");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
+  overflow: hidden;
 }
 
 #caption {
-  margin: auto;
+  padding-left:25%;
+  padding-top:5%;
   width: 50%;
+  postion: fixed;
 }
-#carrots, #sprint, #winds, #stomp, #winds2, #boostedStomp, #winds3 {
+#carrots, #sprint, #winds, #stomp, #winds2, #boostedStomp, #winds3, #staminaBoost {
   color: transparent;
 }
+
 #statusBar {
   width: 10%;
   height: 10%;
-  margin: auto;
+  top: 10%;
+  left: 45%;
   border:2px solid black;
+  position: fixed;
 }
 
 #score {
@@ -59,13 +64,27 @@
   }
 }
 
+#explosion{
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top:450px;
+  overflow: hidden;
+  visibility: hidden;
+}
+#explosion_sprites {
+  height: 100px;
+  opacity: 0.8;
+  animation: moveSpriteSheet .5s steps(3) infinite;
+}
+
 #coin {
   width: 20px;
   height: 20px;
   position: relative;
   top: 418px;
   left: 100%;
-  overlap: hidden;
+  overflow: hidden;
 }
 
 #carrot_sprite {
@@ -77,16 +96,6 @@
 }
 
 @keyframes sliding {
-  0%{left:100%;}
+  0%{left:102%;}
   100%{left:-5%;}
-}
-
-.collapse {
-  animation: folding 2s linear;
-  animation-fill-mode: none;
-}
-
-@keyframes folding {
-  from {width:20px;}
-  to {width:0px;}
 }
