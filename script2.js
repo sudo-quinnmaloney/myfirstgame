@@ -249,7 +249,6 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
-          charSprites.style.top = 0;
         } else {
           character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';  
           charSprites.style.top = -300 + 'px';
