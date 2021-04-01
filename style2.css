@@ -47,10 +47,9 @@
   position: absolute;
   left: 40px;
   top: 39px;
-  border: 1px solid black;
 }
 #character_avatar {
-  border: 1px solid black;
+  overflow: hidden;
   width: 100px;
   height: 100px;
   position: relative;
