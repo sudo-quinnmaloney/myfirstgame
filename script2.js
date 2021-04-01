@@ -171,9 +171,9 @@ var refreshGame = setInterval(function(){
       
       if (stomping || exploding) {
         if (stomping) {
-          charSprites.style.top = -600;
+          charSprites.style.top = -600 + 'px';
         } else if (exploding){
-          charSprites.style.top = -500;
+          charSprites.style.top = -500 + 'px';
         }
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
@@ -218,9 +218,9 @@ var refreshGame = setInterval(function(){
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
         if (posTop == base-hitboxHeight){
           if (mvmtSpeed[0] > 0 && effectiveBoost) {
-            charSprites.style.top = -100;
+            charSprites.style.top = -100 + 'px';
           } else if (mvmtSpeed[0] < 0 && effectiveBoost) {
-            charSprites.style.top = -200;
+            charSprites.style.top = -200 + 'px';
           } else {
             charSprites.style.top = 0;
           }
@@ -235,14 +235,14 @@ var refreshGame = setInterval(function(){
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';
           if (effectiveBoost) {
-            charSprites.style.top = -400;
+            charSprites.style.top = -400 + 'px';
           } else {
-            charSprites.style.top = -300;
+            charSprites.style.top = -300 + 'px';
           }
         } else {
           character.style.top = -(charHeight - hitboxHeight); 
           mvmtSpeed[1] = 0;
-          charSprites.style.top = -300;
+          charSprites.style.top = -300 + 'px';
         }
        } else { 
         if (mvmtSpeed[1] > -6) {
@@ -254,7 +254,7 @@ var refreshGame = setInterval(function(){
           charSprites.style.top = 0;
         } else {
           character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';  
-          charSprites.style.top = -300;
+          charSprites.style.top = -300 + 'px';
         }
        }
 },10);
