@@ -2,8 +2,8 @@ var character = document.getElementById("character_avatar");
 var charWidth = parseInt(window.getComputedStyle(character).getPropertyValue("width"));
 var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("height"));
 var hitbox = document.getElementById("character_hitbox");
-var hitboxWidth = parseInt(window.getComputedStyle(avatar).getPropertyValue("width"));
-var hitboxHeight = parseInt(window.getComputedStyle(avatar).getPropertyValue("height"));
+var hitboxWidth = parseInt(window.getComputedStyle(hitbox).getPropertyValue("width"));
+var hitboxHeight = parseInt(window.getComputedStyle(hitbox).getPropertyValue("height"));
 
 var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
