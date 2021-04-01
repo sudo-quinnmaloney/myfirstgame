@@ -4,7 +4,7 @@ var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("h
 var hitbox = document.getElementById("character_hitbox");
 var hitboxWidth = parseInt(window.getComputedStyle(hitbox).getPropertyValue("width"));
 var hitboxHeight = parseInt(window.getComputedStyle(hitbox).getPropertyValue("height"));
-var charSprites = document.getElemnetById("character_spritesheet");
+var charSprites = document.getElementById("character_spritesheet");
 
 var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
