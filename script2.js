@@ -216,12 +216,11 @@ var refreshGame = setInterval(function(){
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
-        if (gameHeight <= posTop + hitboxHeight){
-          if (mvmtSpeed[0] > 0 && effectiveBoost == 1) {
+        if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] > 0) {
             charSprites.style.top = -100 + 'px';
-          } else if (mvmtSpeed[0] < 0 && effectiveBoost == 1) {
+          } else if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] < 0) {
             charSprites.style.top = -200 + 'px';
-          } else {
+          } else if (gameHeight <= posTop + hitboxHeight) {
             charSprites.style.top = 0;
           }
         }
