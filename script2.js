@@ -216,7 +216,7 @@ var refreshGame = setInterval(function(){
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
-        if (posTop == base-hitboxHeight){
+        if (!mvmtSpeed[1]){
           if (mvmtSpeed[0] > 0 && effectiveBoost) {
             charSprites.style.top = -100 + 'px';
           } else if (mvmtSpeed[0] < 0 && effectiveBoost) {
@@ -226,7 +226,7 @@ var refreshGame = setInterval(function(){
           }
         }
         character.style.left = posLeft - (charWidth-hitboxWidth)/2 - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
-      } else { movingLeft = 0; movingRight = 0; }
+      } else { movingLeft = 0; movingRight = 0; charSprites.style.top = 0;}
       
       if (rising == 1){ 
         if (mvmtSpeed[1] < 3 + 2 * effectiveBoost) {
