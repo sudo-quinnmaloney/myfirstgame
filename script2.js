@@ -217,12 +217,11 @@ var refreshGame = setInterval(function(){
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
         if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] > 0) {
-            charSprites.style.top = -100 + 'px';
-          } else if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] < 0) {
-            charSprites.style.top = -200 + 'px';
-          } else if (gameHeight <= posTop + hitboxHeight) {
-            charSprites.style.top = 0;
-          }
+          charSprites.style.top = -100 + 'px';
+        } else if (gameHeight <= posTop + hitboxHeight && mvmtSpeed[0] < 0) {
+          charSprites.style.top = -200 + 'px';
+        } else if (gameHeight <= posTop + hitboxHeight) {
+          charSprites.style.top = 0;
         }
         character.style.left = posLeft - (charWidth-hitboxWidth)/2 - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; charSprites.style.top = 0;}
