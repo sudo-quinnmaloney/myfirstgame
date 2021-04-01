@@ -41,20 +41,20 @@
   background-color: #66ccff;
 }
 
-#character {
+#character_hitbox {
   width: 20px;
   height: 60px;
-  position: relative;
-  left: 10%;
-  top: 440px;
-  overflow: hidden;
+  position: fixed;
+  left: 40px;
+  top: 40px;
+  border: 1px solid black;
 }
 #character_avatar {
   border: 1px solid black;
   width: 100px;
   height: 100px;
   position: relative;
-  left: 10% - 40px;
+  left: 10%;
   top: 400px;
 }
 
