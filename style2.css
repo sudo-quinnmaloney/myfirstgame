@@ -59,7 +59,7 @@
 }
 
 #character_spritesheet {
-  height: 58px;
+  height: 100px;
   animation: moveSpriteSheet .5s steps(4) infinite;
 }
 
