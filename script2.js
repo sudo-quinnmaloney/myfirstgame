@@ -4,6 +4,7 @@ var charHeight = parseInt(window.getComputedStyle(character).getPropertyValue("h
 var hitbox = document.getElementById("character_hitbox");
 var hitboxWidth = parseInt(window.getComputedStyle(hitbox).getPropertyValue("width"));
 var hitboxHeight = parseInt(window.getComputedStyle(hitbox).getPropertyValue("height"));
+var charSprites = document.getElemnetById("character_spritesheet");
 
 var coin = document.getElementById("coin");
 var blockWidth = parseInt(window.getComputedStyle(coin).getPropertyValue("width"));
@@ -169,6 +170,11 @@ var refreshGame = setInterval(function(){
       mvmtSpeed[0] = movingLeft * 3 - movingRight * 3;
       
       if (stomping || exploding) {
+        if (stomping) {
+          charSprites.style.top = -600;
+        } else if (exploding){
+          charSprites.style.top = -500;
+        }
         mvmtSpeed[1] = -16;
         if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight + 'px';
@@ -210,6 +216,15 @@ var refreshGame = setInterval(function(){
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
+        if (posTop == base-hitboxHeight){
+          if (mvmtSpeed[0] > 0 && effectiveBoost) {
+            charSprites.style.top = -100;
+          } else if (mvmtSpeed[0] < 0 && effectiveBoost) {
+            charSprites.style.top = -200;
+          } else {
+            charSprites.style.top = 0;
+          }
+        }
         character.style.left = posLeft - (charWidth-hitboxWidth)/2 - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
       
@@ -219,9 +234,15 @@ var refreshGame = setInterval(function(){
         }
         if (posTop > mvmtSpeed[1]) {
           character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';
+          if (effectiveBoost) {
+            charSprites.style.top = -400;
+          } else {
+            charSprites.style.top = -300;
+          }
         } else {
           character.style.top = -(charHeight - hitboxHeight); 
           mvmtSpeed[1] = 0;
+          charSprites.style.top = -300;
         }
        } else { 
         if (mvmtSpeed[1] > -6) {
@@ -230,8 +251,10 @@ var refreshGame = setInterval(function(){
         if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
+          charSprites.style.top = 0;
         } else {
-          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';   
+          character.style.top = posTop - (charHeight-hitboxHeight) - mvmtSpeed[1] + 'px';  
+          charSprites.style.top = -300;
         }
        }
 },10);
