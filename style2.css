@@ -44,7 +44,7 @@
 #character_hitbox {
   width: 20px;
   height: 60px;
-  position: fixed;
+  position: absolute;
   left: 40px;
   top: 40px;
   border: 1px solid black;
