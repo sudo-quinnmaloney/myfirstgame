@@ -156,7 +156,7 @@ var refreshGame = setInterval(function(){
         var expWidth = parseInt(window.getComputedStyle(explosion).getPropertyValue("width"));
       }
   
-      if ((posLeft < blockWidth + blockLeft && blockLeft < charWidth + posLeft && posTop < blockHeight + blockTop && posTop + charHeight > blockTop) 
+      if ((posLeft < blockWidth + blockLeft && blockLeft < hitboxWidth + posLeft && posTop < blockHeight + blockTop && posTop + hitboxHeight > blockTop) 
           || (exploding && (expLeft < blockLeft && blockLeft < expLeft + expWidth && expTop < blockTop + blockHeight))){
         collide();
       }
@@ -170,7 +170,7 @@ var refreshGame = setInterval(function(){
       
       if (stomping || exploding) {
         mvmtSpeed[1] = -16;
-        if (posTop - mvmtSpeed[1] > base-charHeight) {
+        if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight + 'px';
           
           mvmtSpeed[1] = 0;
@@ -209,7 +209,7 @@ var refreshGame = setInterval(function(){
       else if (stamina < maxStamina) { stamina += staminaIncrement/8; }
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
-      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - charWidth) {
+      if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
         character.style.left = posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
       
@@ -227,7 +227,7 @@ var refreshGame = setInterval(function(){
         if (mvmtSpeed[1] > -6) {
           mvmtSpeed[1] -= 1;
         }
-        if (posTop - mvmtSpeed[1] > base-charHeight) {
+        if (posTop - mvmtSpeed[1] > base-hitboxHeight) {
           character.style.top = base-charHeight;
           mvmtSpeed[1] = 0;
         } else {
