@@ -53,7 +53,7 @@
   border: 1px solid black;
   width: 100px;
   height: 100px;
-  position: fixed;
+  position: relative;
   left: 10% - 40px;
   top: 400px;
 }
