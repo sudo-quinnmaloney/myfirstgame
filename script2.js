@@ -144,7 +144,7 @@ var checkBounds = setInterval(function(){
 }, 3000);
 
 var refreshGame = setInterval(function(){
-      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left")) + Math.floor((charWidth - hitboxWidth)/2);
+      var posLeft = parseInt(window.getComputedStyle(character).getPropertyValue("left")) + (charWidth - hitboxWidth)/2;
       var posTop = parseInt(window.getComputedStyle(character).getPropertyValue("top")) + (charHeight - hitboxHeight);
   
       var blockLeft = parseInt(window.getComputedStyle(coin).getPropertyValue("left"));
@@ -199,7 +199,7 @@ var refreshGame = setInterval(function(){
             exploding = 0;
           }
         } else {
-          character.style.top = posTop - mvmtSpeed[1] + 'px';
+          character.style.top = posTop -(charHeight-hitboxHeight)- mvmtSpeed[1] + 'px';
         }
         return;
        } 
@@ -210,7 +210,7 @@ var refreshGame = setInterval(function(){
       staminaBar.style.width = Math.floor(100 * stamina/maxStamina) + '%';
 
       if (posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost > leftBound && posLeft - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost < rightBound - hitboxWidth) {
-        character.style.left = posLeft - (charWidth-hitboxWidth) - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
+        character.style.left = posLeft - (charWidth-hitboxWidth)/2 - mvmtSpeed[0] - mvmtSpeed[0] * effectiveBoost + 'px';
       } else { movingLeft = 0; movingRight = 0; }
       
       if (rising == 1){ 
