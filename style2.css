@@ -49,6 +49,14 @@
   top: 440px;
   overflow: hidden;
 }
+#character_avatar {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  left: 10% - 40px;
+  top: 400px;
+}
 
 #character_spritesheet {
   height: 58px;
